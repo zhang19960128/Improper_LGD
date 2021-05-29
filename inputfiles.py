@@ -1,0 +1,13 @@
+natomPM=6;
+dfptinPM="./ABIOUTPUT/primitiveM";
+dfptoutPM='./ABIOUTPUT/primitiveM.abo';
+modePMname='./PRIM/PRIMM';
+natomPGa=6;
+dfptinGa="./ABIOUTPUT/primitiveGa";
+dfptoutGa="./ABIOUTPUT/primitiveGa.abo";
+modePGaname='./PRIM/PRIMGAMMA';
+natomExp=12;
+dfptinExp='./ABIOUTPUT/dfpt0';
+dfptoutExp='./ABIOUTPUT/dfpt0.abo';
+modeExpGaname="./GAMMA/MODEGamma";
+modeExpMname="./M/MODEM";

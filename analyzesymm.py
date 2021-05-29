@@ -4,6 +4,8 @@ import math
 import cmath
 import sys
 import check
+import IOmode
+import inputfiles
 from mpi4py import MPI
 Ha=2*13.59*1.602176634*10**(-19);
 bohr=0.529177*10**-10;
@@ -58,20 +60,6 @@ def groupmode(w):
       groupset.append([modeset[0]]);
     modeset.remove(modeset[0]);
   return(groupset)
-def printmode(Hposition,namelist,axis,v,modename):
-  natom=len(namelist);
-  for i in range(len(v)):
-    f=open(modename+str(i)+".xsf",'w');
-    f.write("PRIMVEC\n");
-    for j in range(3):
-      for k in range(3):
-        f.write(str(axis[j][k])+" ");
-      f.write("\n");
-    f.write("PRIMCOORD\n");
-    f.write(str(natom)+" 1\n");
-    for j in range(natom):
-      f.write(namelist[j]+" {0:10.7f} {1:10.7f} {2:10.7f} {3:10.7f} {4:10.7f} {5:10.7f}\n".format(Hposition[j][0],Hposition[j][1],Hposition[j][2],v[i][3*j+0],v[i][3*j+1],v[i][3*j+2]))
-    f.close();
 def gammamap(Hposition,masslist,axis):
   natom=len(Hposition);
   newaxis=np.copy(axis);
@@ -93,9 +81,6 @@ def gammamap(Hposition,masslist,axis):
       if match == 1 and np.abs(masslist[i]-masslist[j]) < 1e-6 :
         pair.append([i,j]);
   return pair
-def printmodefreq(w,natom):
-  for i in range(3*natom):
-    print(cmath.sqrt(w[i]*Ha/bohr/bohr/aumass)*(10**-12)*33.35641/2/3.141592653)
 def rotate(Hposition,axis,operatingmatrix,scale):
   newaxis=np.copy(axis);
   for i in range(3):
@@ -156,7 +141,7 @@ def obtainprimitivemode(natom,dfptin,dfptout,modename):
   Hposition=analyzePH.readposition(axis,dfptin,natom);
   if rank==0:
     for i in range(len(w)):
-      printmode(Hposition,namelist,axis,[v[i]],modename+"{0:6.2f}".format(cmath.sqrt(w[i])*np.sqrt(Ha/bohr/bohr/aumass)*10**-12*33.35641/2/3.141592653));
+      IOmode.printmode(Hposition,namelist,axis,[v[i]],modename+"{0:6.2f}".format(cmath.sqrt(w[i])*np.sqrt(Ha/bohr/bohr/aumass)*10**-12*33.35641/2/3.141592653));
   rotationmatrix=np.array([[np.sqrt(2)/2,np.sqrt(2)/2,0],[-np.sqrt(2)/2,np.sqrt(2)/2,0],[0,0,1]]);
   scale=np.array([np.sqrt(2),np.sqrt(2),1]);
   [primitive,axis]=rotate(Hposition,axis,rotationmatrix,scale);
@@ -217,89 +202,24 @@ def groupmatchoperation(w,symop,Tlist,Ev,axis):
 comm=MPI.COMM_WORLD
 size=comm.Get_size();
 rank=comm.Get_rank();
-natom=6;
-dfptin="./ABIOUTPUT/primitiveM";
-dfptout='./ABIOUTPUT/primitiveM.abo'
-[primitiveM,wM,vM]=obtainprimitivemode(natom,dfptin,dfptout,'./PRIM/PRIMM');
-dfptin="./ABIOUTPUT/primitiveGa";
-dfptout="./ABIOUTPUT/primitiveGa.abo";
-[primitiveGa,wGa,vGa]=obtainprimitivemode(natom,dfptin,dfptout,'./PRIM/PRIMGAMMA');
-natom=12;
-masslist=[];
-namelist=[];
-[masslist,namelist]=sequence(natom);
-dfptin='./ABIOUTPUT/dfpt0';
-dfptout='./ABIOUTPUT/dfpt0.abo';
-axis=analyzePH.readaxis(dfptin);
-[Dw,Dv]=obtainmode(natom,masslist,dfptin,dfptout);
-ExpandPosition=analyzePH.readposition(axis,dfptin,natom);
+[primitiveM,wM,vM]=obtainprimitivemode(inputfiles.natomPM,inputfiles.dfptinPM,inputfiles.dfptoutPM,inputfiles.modePMname);
+[primitiveGa,wGa,vGa]=obtainprimitivemode(inputfiles.natomPGa,inputfiles.dfptinGa,inputfiles.dfptoutGa,inputfiles.modePGaname);
+[masslist,namelist]=sequence(inputfiles.natomExp);
+axis=analyzePH.readaxis(inputfiles.dfptinExp);
+[Dw,Dv]=obtainmode(inputfiles.natomExp,masslist,inputfiles.dfptinExp,inputfiles.dfptoutExp);
+ExpandPosition=analyzePH.readposition(axis,inputfiles.dfptinExp,inputfiles.natomExp);
 EvM=modemap(ExpandPosition,masslist,axis,primitiveM,vM.real,-1);
 EvGamma=modemap(ExpandPosition,masslist,axis,primitiveGa,vGa.real,1)
 if rank==0:
-  printmode(ExpandPosition,namelist,axis,EvM,"./M/MODEM");
-  printmode(ExpandPosition,namelist,axis,EvGamma,"./GAMMA/MODEGamma");
+  IOmode.printmode(ExpandPosition,namelist,axis,EvM,inputfiles.modeExpMname);
+  IOmode.printmode(ExpandPosition,namelist,axis,EvGamma,inputfiles.modeExpGaname);
   for i in range(len(wGa)):
-    printmode(ExpandPosition,namelist,axis,[EvGamma[i]],"./GAMMA/MODEGamma{0:6.2f}".format(cmath.sqrt(wGa[i])*np.sqrt(Ha/bohr/bohr/aumass)*10**-12*33.35641/2/3.141592653));
-symop=analyzePH.readsymmetry('./ABIOUTPUT/dfpt0.abo');
+    IOmode.printmode(ExpandPosition,namelist,axis,[EvGamma[i]],inputfiles.modeExpGaname+"{0:6.2f}".format(cmath.sqrt(wGa[i])*np.sqrt(Ha/bohr/bohr/aumass)*10**-12*33.35641/2/3.141592653));
+symop=analyzePH.readsymmetry(inputfiles.dfptoutExp);
 length=len(symop)
 localsymop=symop[rank:length:size];
 localTlist=check.check(localsymop,axis,masslist,ExpandPosition);
 print(localsymop[3])
 [matchcoeff,matchmode]=groupmatchoperation(wGa,localsymop[3],localTlist[3],EvGamma,axis);
-printmode(ExpandPosition,namelist,axis,matchmode,"./MATCH/MATCHMODE");
+IOmode.printmode(ExpandPosition,namelist,axis,matchmode,"./MATCH/MATCHMODE");
 print(matchcoeff)
-'''
-print('--------------------------------------------------------------------------------------')
-gp=groupmode(wGa)
-matchmode=[];
-matchcoeff=[];
-for i in range(len(gp)):
-  groupindex=i;
-  vOP=symoperate(localsymop[3],localTlist[3],EvGamma[gp[groupindex][0]],axis);
-  re=findmodematchsubspace(vOP,EvGamma,gp[groupindex]);
-  for j in range(1):
-    vOPafter=symoperate(localsymop[3],localTlist[3],re[1],axis);
-    re=findmodematchsubspace(vOPafter,EvGamma,gp[groupindex]);
-  if re[0] > 0.80:
-    matchcoeff.append(re[0]);
-    matchmode.append(re[1]);
-  else:
-    pass;
-print(matchmode)
-printmode(ExpandPosition,namelist,axis,matchmode,"MATCHMODE")
-mat=np.zeros((2,len(EvGamma[0])));
-for i in range(len(gp[0])):
-  mat[i]=np.copy(EvGamma[gp[0][i]]);
-A=np.matmul(mat,mat.transpose());
-print(np.matmul(mat,mat.transpose()));
-b=np.matmul(vOP,mat.transpose());
-print(np.matmul(vOP,mat.transpose()));
-coeff=np.matmul(b,np.linalg.inv(A));
-similar=coeff[0]*EvGamma[gp[0][0]]+coeff[1]*EvGamma[gp[0][1]];
-similar=similar/np.linalg.norm(similar);
-vOP=vOP/np.linalg.norm(vOP);
-print(vOP.dot(similar))
-for i in range(len(EvGamma)):
-  vOP=symoperate(localsymop[3],localTlist[3],EvGamma[i],axis);
-  match=findmodematch(vOP,EvGamma);
-  if len(match)==1:
-    print('FIND MATCH')
-print(wGa)
-print(Hposition)
-length=len(symop);
-localsymop=symop[rank:length:size];
-localTlist=check(localsymop,axis,masslist,Hposition);
-print(localsymop[3])
-groupindex=groupmode(w);
-print('Num Group is:=',len(groupindex),'GrouP index:=',groupindex)
-print(gammamap(Hposition,masslist,axis));
-print(findgammamode(v,masslist,Hposition,axis))
-for i in range(len(groupindex)):
-  for j in range(len(groupindex[i])):
-    print(w[groupindex[i][j]])
-for i in range(3*natom):
-  vOP=symoperate(localsymop[3],localTlist[3],v[i],axis);
-  match=findmodematch(vOP,v,3*natom);
-  if len(match)==1:
-    print('FIND MATCH')
-'''
