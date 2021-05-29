@@ -6,10 +6,11 @@ import sys
 import check
 import IOmode
 import inputfiles
+import primitive
+import sequence
+import obtainmode
 from mpi4py import MPI
-Ha=2*13.59*1.602176634*10**(-19);
-bohr=0.529177*10**-10;
-aumass=1.660539066*10**-27;
+import sciconst
 #Note that symmetry operation also move the atoms#
 def symoperate(OP,modeindex,v,axis):
   sp=np.shape(v);
@@ -29,20 +30,6 @@ def multipleOperate(v,OPlist):
   for i in range(1,length):
     re=symoperate(OPlist[i],re);
   return re;
-def modematch(v1,v2):
-  length=len(v1);
-  se=0.0;
-  for i in range(length):
-    se=se+v1[i]*v2[i];
-  return se;
-def findmodematch(v1,v):
-  result=[];
-  n=len(v);
-  for i in range(n):
-    re=modematch(v1,v[i]);
-    if re**2 >0.8:
-      result.append(i);
-  return(result);
 def groupmode(w):
   length=len(w);
   modeset=[i for i in range(length)];
@@ -81,71 +68,6 @@ def gammamap(Hposition,masslist,axis):
       if match == 1 and np.abs(masslist[i]-masslist[j]) < 1e-6 :
         pair.append([i,j]);
   return pair
-def rotate(Hposition,axis,operatingmatrix,scale):
-  newaxis=np.copy(axis);
-  for i in range(3):
-    newaxis[i]=np.matmul(operatingmatrix,axis[i].reshape((3,1))).reshape(3);
-  crystalposition=np.copy(Hposition);
-  newposition=np.copy(Hposition);
-  natom=len(Hposition);
-  for i in range(natom):
-    crystalposition[i]=np.matmul(Hposition[i],np.linalg.inv(newaxis));
-  for i in range(3):
-    for j in range(3):
-      if i!=j:
-        newaxis[i][j]=0.0;
-      else:
-        newaxis[i][i]=np.linalg.norm(axis[i]);
-  for i in range(natom):
-    newposition[i]=np.matmul(crystalposition[i],newaxis);
-  for i in range(3):
-    newaxis[i][i]=newaxis[i][i]*scale[i];
-  for i in range(natom):
-    for j in range(3):
-      if newposition[i][j]<0:
-        newposition[i][j]=newposition[i][j]+newaxis[j][j];
-      elif newposition[j][j]>newaxis[j][j]:
-        newposition[i][j]=newposition[i][j]-newaxis[j][j];
-  return [newposition,newaxis];
-def obtainmode(natom,masslist,dfptin,dfptout):
-  dyn=analyzePH.obtaindyn(natom,dfptout);
-  for i in range(natom):
-    for j in range(natom):
-      for m in range(3):
-        for n in range(3):
-          dyn[i][j][m][n]=dyn[i][j][m][n]/np.sqrt(masslist[i]*masslist[j]);
-  dyn2D=np.zeros((3*natom,3*natom));
-  for i in range(natom):
-    for j in range(natom):
-      dyn2D[(i*3):((i+1)*3),(j*3):((j+1)*3)]=np.copy(dyn[i,j,0:3,0:3]);
-  w,v=np.linalg.eig(dyn2D);
-  v=v.transpose();
-  return [w,v];
-def sequence(natom):
-  masslist=[];
-  namelist=[];
-  for i in range(int(1/6*natom)):
-    masslist.append(178.49);
-    namelist.append("Hf")
-  for i in range(int(1/6*natom),int(2/6*natom)):
-    masslist.append(91.224);
-    namelist.append("Zr")
-  for i in range(int(2/6*natom),natom):
-    masslist.append(15.9999);
-    namelist.append("O")
-  return([masslist,namelist]);
-def obtainprimitivemode(natom,dfptin,dfptout,modename):
-  [masslist,namelist]=sequence(natom);
-  [w,v]=obtainmode(natom,masslist,dfptin,dfptout);
-  axis=analyzePH.readaxis(dfptin);
-  Hposition=analyzePH.readposition(axis,dfptin,natom);
-  if rank==0:
-    for i in range(len(w)):
-      IOmode.printmode(Hposition,namelist,axis,[v[i]],modename+"{0:6.2f}".format(cmath.sqrt(w[i])*np.sqrt(Ha/bohr/bohr/aumass)*10**-12*33.35641/2/3.141592653));
-  rotationmatrix=np.array([[np.sqrt(2)/2,np.sqrt(2)/2,0],[-np.sqrt(2)/2,np.sqrt(2)/2,0],[0,0,1]]);
-  scale=np.array([np.sqrt(2),np.sqrt(2),1]);
-  [primitive,axis]=rotate(Hposition,axis,rotationmatrix,scale);
-  return [primitive,w,v];
 def modemap(ExpP,masslist,axis,PrimP,Pv,factor):
   pairs=gammamap(ExpP,masslist,axis);
   mapdict=dict();
@@ -202,11 +124,11 @@ def groupmatchoperation(w,symop,Tlist,Ev,axis):
 comm=MPI.COMM_WORLD
 size=comm.Get_size();
 rank=comm.Get_rank();
-[primitiveM,wM,vM]=obtainprimitivemode(inputfiles.natomPM,inputfiles.dfptinPM,inputfiles.dfptoutPM,inputfiles.modePMname);
-[primitiveGa,wGa,vGa]=obtainprimitivemode(inputfiles.natomPGa,inputfiles.dfptinGa,inputfiles.dfptoutGa,inputfiles.modePGaname);
-[masslist,namelist]=sequence(inputfiles.natomExp);
+[primitiveM,wM,vM]=primitive.obtainprimitivemode(inputfiles.natomPM,inputfiles.dfptinPM,inputfiles.dfptoutPM,inputfiles.modePMname);
+[primitiveGa,wGa,vGa]=primitive.obtainprimitivemode(inputfiles.natomPGa,inputfiles.dfptinGa,inputfiles.dfptoutGa,inputfiles.modePGaname);
+[masslist,namelist]=sequence.sequence(inputfiles.natomExp);
 axis=analyzePH.readaxis(inputfiles.dfptinExp);
-[Dw,Dv]=obtainmode(inputfiles.natomExp,masslist,inputfiles.dfptinExp,inputfiles.dfptoutExp);
+[Dw,Dv]=obtainmode.obtainmode(inputfiles.natomExp,masslist,inputfiles.dfptinExp,inputfiles.dfptoutExp);
 ExpandPosition=analyzePH.readposition(axis,inputfiles.dfptinExp,inputfiles.natomExp);
 EvM=modemap(ExpandPosition,masslist,axis,primitiveM,vM.real,-1);
 EvGamma=modemap(ExpandPosition,masslist,axis,primitiveGa,vGa.real,1)
@@ -214,7 +136,7 @@ if rank==0:
   IOmode.printmode(ExpandPosition,namelist,axis,EvM,inputfiles.modeExpMname);
   IOmode.printmode(ExpandPosition,namelist,axis,EvGamma,inputfiles.modeExpGaname);
   for i in range(len(wGa)):
-    IOmode.printmode(ExpandPosition,namelist,axis,[EvGamma[i]],inputfiles.modeExpGaname+"{0:6.2f}".format(cmath.sqrt(wGa[i])*np.sqrt(Ha/bohr/bohr/aumass)*10**-12*33.35641/2/3.141592653));
+    IOmode.printmode(ExpandPosition,namelist,axis,[EvGamma[i]],inputfiles.modeExpGaname+"{0:6.2f}".format(cmath.sqrt(wGa[i])*np.sqrt(sciconst.Ha/sciconst.bohr/sciconst.bohr/sciconst.aumass)*10**-12*33.35641/2/3.141592653));
 symop=analyzePH.readsymmetry(inputfiles.dfptoutExp);
 length=len(symop)
 localsymop=symop[rank:length:size];
