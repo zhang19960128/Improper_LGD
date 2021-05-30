@@ -59,7 +59,7 @@ def findexactmatch(OP,axis,masslist,position):
         transformlist.append(j);
         PafterOPandT[i]=np.copy(position[j]);
   if(len(transformlist)==sp[0]):
-    print("EXACT MATCH")
+    pass;
   else:
     print("Cannot FIND MATCH")
   solution=[PafterOPandT,transformlist,PafterOP];

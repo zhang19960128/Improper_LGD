@@ -1,0 +1,1065 @@
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+File Imported
+DM is: 18
+Mode Orthonormal Successful
+DM is: 18
+Mode Orthonormal Successful
+[[0, 7], [1, 5], [2, 4], [3, 10], [6], [8, 9], [11], [12], [13], [14], [15], [16, 17]]
+-------------------------GAMMA------------------------------------
+SymOP E               [1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1]
+SymOP I               [-1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1  1 -1  1  1  1  1  1]
+SymOP C2y             [ 1 -1 -1 -1 -1  1  1 -1  1 -1 -1  1  1 -1 -1  1  1 -1]
+SymOP sigma_{xz}      [-1  1  1  1  1 -1 -1  1 -1  1  1  1 -1 -1 -1  1  1 -1]
+SymOP C2z             [-1 -1 -1 -1  1 -1 -1  1 -1  1 -1  1  1  1 -1 -1 -1 -1]
+SymOP sigma_{xy}      [ 1  1  1  1 -1  1  1 -1  1 -1  1  1 -1  1 -1 -1 -1 -1]
+SymOP C2x             [-1  1  1  1 -1 -1 -1 -1 -1 -1  1  1  1 -1  1 -1 -1  1]
+SymOP Sigma_{yz}      [ 1 -1 -1 -1  1  1  1  1  1  1 -1  1 -1 -1  1 -1 -1  1]
+group is:  [0, 10, 13]
+[[ 2.02294336e-19 -9.99041166e-01 -8.27927434e-16]
+ [-9.99041166e-01 -1.18896707e-18 -8.09337491e-16]
+ [-8.27927434e-16 -8.09337491e-16  1.00000000e+00]]
+group is:  [1, 8]
+[[-9.88924110e-18 -9.99065583e-01]
+ [-9.99065583e-01  1.52633648e-17]]
+group is:  [2, 5]
+[[-1.78264375e-16 -9.99999983e-01]
+ [-9.99999983e-01  1.78293116e-16]]
+group is:  [3, 6]
+[[ 1.63134052e-16  9.99975599e-01]
+ [ 9.99975599e-01 -1.64004214e-16]]
+group is:  [2, 5]
+[[-1.78264375e-16 -9.99999983e-01]
+ [-9.99999983e-01  1.78293116e-16]]
+group is:  [3, 6]
+[[ 1.63134052e-16  9.99975599e-01]
+ [ 9.99975599e-01 -1.64004214e-16]]
+group is:  [1, 8]
+[[-9.88924110e-18 -9.99065583e-01]
+ [-9.99065583e-01  1.52633648e-17]]
+group is:  [0, 10, 13]
+[[ 2.02294336e-19 -9.99041166e-01 -8.27927434e-16]
+ [-9.99041166e-01 -1.18896707e-18 -8.09337491e-16]
+ [-8.27927434e-16 -8.09337491e-16  1.00000000e+00]]
+group is:  [14, 15]
+[[ 3.01535237e-04 -9.98906752e-01]
+ [-9.98906752e-01 -3.01535237e-04]]
+group is:  [14, 15]
+[[ 3.01535237e-04 -9.98906752e-01]
+ [-9.98906752e-01 -3.01535237e-04]]
+group is:  [16, 17]
+[[ 0.01230414 -0.99883102]
+ [-0.99883102 -0.01230414]]
+group is:  [16, 17]
+[[ 0.01230414 -0.99883102]
+ [-0.99883102 -0.01230414]]
+SymOP I+C2/[1,-1,0]   [0 0 1 0 1 0 0 1 0 1 0 1 1 1 0 0 0 0]
+group is:  [0, 10, 13]
+[[-2.02294336e-19  9.99041166e-01  8.27927434e-16]
+ [ 9.99041166e-01  1.18896707e-18 -8.09337077e-16]
+ [ 8.27927434e-16 -8.09337077e-16  1.00000000e+00]]
+group is:  [1, 8]
+[[ 9.88924110e-18  9.99065583e-01]
+ [ 9.99065583e-01 -1.52633648e-17]]
+group is:  [2, 5]
+[[ 1.78264375e-16  9.99999983e-01]
+ [ 9.99999983e-01 -1.78293116e-16]]
+group is:  [3, 6]
+[[-1.63134052e-16 -9.99975599e-01]
+ [-9.99975599e-01  1.64004214e-16]]
+group is:  [2, 5]
+[[ 1.78264375e-16  9.99999983e-01]
+ [ 9.99999983e-01 -1.78293116e-16]]
+group is:  [3, 6]
+[[-1.63134052e-16 -9.99975599e-01]
+ [-9.99975599e-01  1.64004214e-16]]
+group is:  [1, 8]
+[[ 9.88924110e-18  9.99065583e-01]
+ [ 9.99065583e-01 -1.52633648e-17]]
+group is:  [0, 10, 13]
+[[-2.02294336e-19  9.99041166e-01  8.27927434e-16]
+ [ 9.99041166e-01  1.18896707e-18 -8.09337077e-16]
+ [ 8.27927434e-16 -8.09337077e-16  1.00000000e+00]]
+group is:  [14, 15]
+[[ 3.01535237e-04 -9.98906752e-01]
+ [-9.98906752e-01 -3.01535237e-04]]
+group is:  [14, 15]
+[[ 3.01535237e-04 -9.98906752e-01]
+ [-9.98906752e-01 -3.01535237e-04]]
+group is:  [16, 17]
+[[ 0.01230414 -0.99883102]
+ [-0.99883102 -0.01230414]]
+group is:  [16, 17]
+[[ 0.01230414 -0.99883102]
+ [-0.99883102 -0.01230414]]
+SymOP C2/[1,-1,0]     [ 0  0  1  0 -1  0  0 -1  0 -1  0  1 -1  1  0  0  0  0]
+group is:  [0, 10, 13]
+[[-1.09129819e-21 -1.00000000e+00 -8.09337284e-16]
+ [ 1.00000000e+00  1.09129819e-21  8.09337284e-16]
+ [ 8.09337284e-16  8.09337284e-16 -1.00000000e+00]]
+group is:  [1, 8]
+[[ 2.23410538e-17  1.00000000e+00]
+ [-1.00000000e+00 -2.23410538e-17]]
+group is:  [2, 5]
+[[-6.08380052e-17  1.00000000e+00]
+ [-1.00000000e+00  6.08380052e-17]]
+group is:  [3, 6]
+[[ 1.36355476e-17 -1.00000000e+00]
+ [ 1.00000000e+00 -1.36355476e-17]]
+group is:  [2, 5]
+[[-6.08380052e-17  1.00000000e+00]
+ [-1.00000000e+00  6.08380052e-17]]
+group is:  [3, 6]
+[[ 1.36355476e-17 -1.00000000e+00]
+ [ 1.00000000e+00 -1.36355476e-17]]
+group is:  [1, 8]
+[[ 2.23410538e-17  1.00000000e+00]
+ [-1.00000000e+00 -2.23410538e-17]]
+group is:  [0, 10, 13]
+[[-1.09129819e-21 -1.00000000e+00 -8.09337284e-16]
+ [ 1.00000000e+00  1.09129819e-21  8.09337284e-16]
+ [ 8.09337284e-16  8.09337284e-16 -1.00000000e+00]]
+group is:  [14, 15]
+[[-8.15226862e-19  1.00000000e+00]
+ [-1.00000000e+00  8.13197363e-19]]
+group is:  [14, 15]
+[[-8.15226862e-19  1.00000000e+00]
+ [-1.00000000e+00  8.13197363e-19]]
+group is:  [16, 17]
+[[ 1.71063868e-17 -1.00000000e+00]
+ [ 1.00000000e+00 -1.71487484e-17]]
+group is:  [16, 17]
+[[ 1.71063868e-17 -1.00000000e+00]
+ [ 1.00000000e+00 -1.71487484e-17]]
+SymOP I+C4Z           [ 0  0 -1  0 -1  0  0 -1  0 -1  0  1  1 -1  0  0  0  0]
+group is:  [0, 10, 13]
+[[ 1.09129819e-21  1.00000000e+00  8.09337284e-16]
+ [-1.00000000e+00 -1.09129819e-21  8.09337284e-16]
+ [-8.09337284e-16  8.09337284e-16 -1.00000000e+00]]
+group is:  [1, 8]
+[[-2.23410538e-17 -1.00000000e+00]
+ [ 1.00000000e+00  2.23410538e-17]]
+group is:  [2, 5]
+[[ 6.08380052e-17 -1.00000000e+00]
+ [ 1.00000000e+00 -6.08380052e-17]]
+group is:  [3, 6]
+[[-1.36355476e-17  1.00000000e+00]
+ [-1.00000000e+00  1.36355476e-17]]
+group is:  [2, 5]
+[[ 6.08380052e-17 -1.00000000e+00]
+ [ 1.00000000e+00 -6.08380052e-17]]
+group is:  [3, 6]
+[[-1.36355476e-17  1.00000000e+00]
+ [-1.00000000e+00  1.36355476e-17]]
+group is:  [1, 8]
+[[-2.23410538e-17 -1.00000000e+00]
+ [ 1.00000000e+00  2.23410538e-17]]
+group is:  [0, 10, 13]
+[[ 1.09129819e-21  1.00000000e+00  8.09337284e-16]
+ [-1.00000000e+00 -1.09129819e-21  8.09337284e-16]
+ [-8.09337284e-16  8.09337284e-16 -1.00000000e+00]]
+group is:  [14, 15]
+[[-8.16683586e-19  1.00000000e+00]
+ [-1.00000000e+00  8.18393684e-19]]
+group is:  [14, 15]
+[[-8.16683586e-19  1.00000000e+00]
+ [-1.00000000e+00  8.18393684e-19]]
+group is:  [16, 17]
+[[ 1.72509453e-17 -1.00000000e+00]
+ [ 1.00000000e+00 -1.71479943e-17]]
+group is:  [16, 17]
+[[ 1.72509453e-17 -1.00000000e+00]
+ [ 1.00000000e+00 -1.71479943e-17]]
+SymOP C^{1}_4Z        [ 0  0 -1  0  1  0  0  1  0  1  0  1 -1 -1  0  0  0  0]
+group is:  [0, 10, 13]
+[[-2.02294336e-19  9.99041166e-01  8.27927434e-16]
+ [ 9.99041166e-01  1.18896707e-18 -8.09337077e-16]
+ [ 8.27927434e-16 -8.09337077e-16  1.00000000e+00]]
+group is:  [1, 8]
+[[ 9.88924110e-18  9.99065583e-01]
+ [ 9.99065583e-01 -1.52633648e-17]]
+group is:  [2, 5]
+[[ 1.78264375e-16  9.99999983e-01]
+ [ 9.99999983e-01 -1.78293116e-16]]
+group is:  [3, 6]
+[[-1.63134052e-16 -9.99975599e-01]
+ [-9.99975599e-01  1.64004214e-16]]
+group is:  [2, 5]
+[[ 1.78264375e-16  9.99999983e-01]
+ [ 9.99999983e-01 -1.78293116e-16]]
+group is:  [3, 6]
+[[-1.63134052e-16 -9.99975599e-01]
+ [-9.99975599e-01  1.64004214e-16]]
+group is:  [1, 8]
+[[ 9.88924110e-18  9.99065583e-01]
+ [ 9.99065583e-01 -1.52633648e-17]]
+group is:  [0, 10, 13]
+[[-2.02294336e-19  9.99041166e-01  8.27927434e-16]
+ [ 9.99041166e-01  1.18896707e-18 -8.09337077e-16]
+ [ 8.27927434e-16 -8.09337077e-16  1.00000000e+00]]
+group is:  [14, 15]
+[[-3.01535237e-04  9.98906752e-01]
+ [ 9.98906752e-01  3.01535237e-04]]
+group is:  [14, 15]
+[[-3.01535237e-04  9.98906752e-01]
+ [ 9.98906752e-01  3.01535237e-04]]
+group is:  [16, 17]
+[[-0.01230414  0.99883102]
+ [ 0.99883102  0.01230414]]
+group is:  [16, 17]
+[[-0.01230414  0.99883102]
+ [ 0.99883102  0.01230414]]
+SymOP I+C2/[1,1,0]    [0 0 1 0 1 0 0 1 0 1 0 1 1 1 0 0 0 0]
+group is:  [0, 10, 13]
+[[ 2.02294336e-19 -9.99041166e-01 -8.27927434e-16]
+ [-9.99041166e-01 -1.18896707e-18 -8.09337491e-16]
+ [-8.27927434e-16 -8.09337491e-16  1.00000000e+00]]
+group is:  [1, 8]
+[[-9.88924110e-18 -9.99065583e-01]
+ [-9.99065583e-01  1.52633648e-17]]
+group is:  [2, 5]
+[[-1.78264375e-16 -9.99999983e-01]
+ [-9.99999983e-01  1.78293116e-16]]
+group is:  [3, 6]
+[[ 1.63134052e-16  9.99975599e-01]
+ [ 9.99975599e-01 -1.64004214e-16]]
+group is:  [2, 5]
+[[-1.78264375e-16 -9.99999983e-01]
+ [-9.99999983e-01  1.78293116e-16]]
+group is:  [3, 6]
+[[ 1.63134052e-16  9.99975599e-01]
+ [ 9.99975599e-01 -1.64004214e-16]]
+group is:  [1, 8]
+[[-9.88924110e-18 -9.99065583e-01]
+ [-9.99065583e-01  1.52633648e-17]]
+group is:  [0, 10, 13]
+[[ 2.02294336e-19 -9.99041166e-01 -8.27927434e-16]
+ [-9.99041166e-01 -1.18896707e-18 -8.09337491e-16]
+ [-8.27927434e-16 -8.09337491e-16  1.00000000e+00]]
+group is:  [14, 15]
+[[-3.01535237e-04  9.98906752e-01]
+ [ 9.98906752e-01  3.01535237e-04]]
+group is:  [14, 15]
+[[-3.01535237e-04  9.98906752e-01]
+ [ 9.98906752e-01  3.01535237e-04]]
+group is:  [16, 17]
+[[-0.01230414  0.99883102]
+ [ 0.99883102  0.01230414]]
+group is:  [16, 17]
+[[-0.01230414  0.99883102]
+ [ 0.99883102  0.01230414]]
+SymOP C2/[1,1,0]      [ 0  0  1  0 -1  0  0 -1  0 -1  0  1 -1  1  0  0  0  0]
+group is:  [0, 10, 13]
+[[ 1.09129819e-21  1.00000000e+00  8.09337284e-16]
+ [-1.00000000e+00 -1.09129819e-21  8.09337284e-16]
+ [-8.09337284e-16  8.09337284e-16 -1.00000000e+00]]
+group is:  [1, 8]
+[[-2.23410538e-17 -1.00000000e+00]
+ [ 1.00000000e+00  2.23410538e-17]]
+group is:  [2, 5]
+[[ 6.08380052e-17 -1.00000000e+00]
+ [ 1.00000000e+00 -6.08380052e-17]]
+group is:  [3, 6]
+[[-1.36355476e-17  1.00000000e+00]
+ [-1.00000000e+00  1.36355476e-17]]
+group is:  [2, 5]
+[[ 6.08380052e-17 -1.00000000e+00]
+ [ 1.00000000e+00 -6.08380052e-17]]
+group is:  [3, 6]
+[[-1.36355476e-17  1.00000000e+00]
+ [-1.00000000e+00  1.36355476e-17]]
+group is:  [1, 8]
+[[-2.23410538e-17 -1.00000000e+00]
+ [ 1.00000000e+00  2.23410538e-17]]
+group is:  [0, 10, 13]
+[[ 1.09129819e-21  1.00000000e+00  8.09337284e-16]
+ [-1.00000000e+00 -1.09129819e-21  8.09337284e-16]
+ [-8.09337284e-16  8.09337284e-16 -1.00000000e+00]]
+group is:  [14, 15]
+[[ 8.15226861e-19 -1.00000000e+00]
+ [ 1.00000000e+00 -8.13197363e-19]]
+group is:  [14, 15]
+[[ 8.15226861e-19 -1.00000000e+00]
+ [ 1.00000000e+00 -8.13197363e-19]]
+group is:  [16, 17]
+[[-1.71063868e-17  1.00000000e+00]
+ [-1.00000000e+00  1.71487484e-17]]
+group is:  [16, 17]
+[[-1.71063868e-17  1.00000000e+00]
+ [-1.00000000e+00  1.71487484e-17]]
+SymOP I+C2/[0,0,1]    [ 0  0 -1  0 -1  0  0 -1  0 -1  0  1  1 -1  0  0  0  0]
+group is:  [0, 10, 13]
+[[-1.09129819e-21 -1.00000000e+00 -8.09337284e-16]
+ [ 1.00000000e+00  1.09129819e-21  8.09337284e-16]
+ [ 8.09337284e-16  8.09337284e-16 -1.00000000e+00]]
+group is:  [1, 8]
+[[ 2.23410538e-17  1.00000000e+00]
+ [-1.00000000e+00 -2.23410538e-17]]
+group is:  [2, 5]
+[[-6.08380052e-17  1.00000000e+00]
+ [-1.00000000e+00  6.08380052e-17]]
+group is:  [3, 6]
+[[ 1.36355476e-17 -1.00000000e+00]
+ [ 1.00000000e+00 -1.36355476e-17]]
+group is:  [2, 5]
+[[-6.08380052e-17  1.00000000e+00]
+ [-1.00000000e+00  6.08380052e-17]]
+group is:  [3, 6]
+[[ 1.36355476e-17 -1.00000000e+00]
+ [ 1.00000000e+00 -1.36355476e-17]]
+group is:  [1, 8]
+[[ 2.23410538e-17  1.00000000e+00]
+ [-1.00000000e+00 -2.23410538e-17]]
+group is:  [0, 10, 13]
+[[-1.09129819e-21 -1.00000000e+00 -8.09337284e-16]
+ [ 1.00000000e+00  1.09129819e-21  8.09337284e-16]
+ [ 8.09337284e-16  8.09337284e-16 -1.00000000e+00]]
+group is:  [14, 15]
+[[ 8.16683586e-19 -1.00000000e+00]
+ [ 1.00000000e+00 -8.18393684e-19]]
+group is:  [14, 15]
+[[ 8.16683586e-19 -1.00000000e+00]
+ [ 1.00000000e+00 -8.18393684e-19]]
+group is:  [16, 17]
+[[-1.72509453e-17  1.00000000e+00]
+ [-1.00000000e+00  1.71479943e-17]]
+group is:  [16, 17]
+[[-1.72509453e-17  1.00000000e+00]
+ [-1.00000000e+00  1.71479943e-17]]
+SymOP C^3_4           [ 0  0 -1  0  1  0  0  1  0  1  0  1 -1 -1  0  0  0  0]
+-------------------------  M  ------------------------------------
+SymOP E               [1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1]
+SymOP I               [-1 -1 -1 -1 -1 -1 -1 -1  1  1 -1 -1 -1 -1  1  1  1  1]
+group is:  [0, 7]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[-4.34360753e-01 -1.33847958e-05]
+ [-1.33847958e-05  4.34360753e-01]]
+group is:  [1, 5]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[ 0.43395573  0.00058043]
+ [ 0.00058043 -0.43395573]]
+group is:  [2, 4]
+[[ 4.05050579e-04  9.99406175e-01]
+ [ 9.99406175e-01 -4.05050579e-04]]
+group is:  [3, 10]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[-5.32715903e-06 -2.73249388e-16]
+ [-2.85485405e-16 -2.11195135e-04]]
+group is:  [2, 4]
+[[ 4.05050579e-04  9.99406175e-01]
+ [ 9.99406175e-01 -4.05050579e-04]]
+group is:  [1, 5]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[ 0.43395573  0.00058043]
+ [ 0.00058043 -0.43395573]]
+group is:  [0, 7]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[-4.34360753e-01 -1.33847958e-05]
+ [-1.33847958e-05  4.34360753e-01]]
+group is:  [8, 9]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[-1.51033855e-16  1.65702772e-16]
+ [ 1.70056352e-16  2.97053199e-18]]
+group is:  [8, 9]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[-1.51033855e-16  1.65702772e-16]
+ [ 1.70056352e-16  2.97053199e-18]]
+group is:  [3, 10]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[-5.32715903e-06 -2.73249388e-16]
+ [-2.85485405e-16 -2.11195135e-04]]
+group is:  [11]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[2.86927399e-17]]
+group is:  [12]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[-3.28386711e-18]]
+group is:  [14]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[2.12423504e-17]]
+group is:  [15]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[6.7623262e-17]]
+group is:  [16, 17]
+[[ 8.38116279e-15 -1.00000000e+00]
+ [-1.00000000e+00 -8.38116279e-15]]
+group is:  [16, 17]
+[[ 8.38116279e-15 -1.00000000e+00]
+ [-1.00000000e+00 -8.38116279e-15]]
+SymOP C2y             [ 0  0  0  0  0  0 -1  0  0  0  0  0  0 -1  0  0  0  0]
+group is:  [0, 7]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[ 4.34360753e-01  1.33847958e-05]
+ [ 1.33847958e-05 -4.34360753e-01]]
+group is:  [1, 5]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[-0.43395573 -0.00058043]
+ [-0.00058043  0.43395573]]
+group is:  [2, 4]
+[[-4.05050579e-04 -9.99406175e-01]
+ [-9.99406175e-01  4.05050579e-04]]
+group is:  [3, 10]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[5.32715903e-06 2.72263385e-16]
+ [2.85485405e-16 2.11195135e-04]]
+group is:  [2, 4]
+[[-4.05050579e-04 -9.99406175e-01]
+ [-9.99406175e-01  4.05050579e-04]]
+group is:  [1, 5]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[-0.43395573 -0.00058043]
+ [-0.00058043  0.43395573]]
+group is:  [0, 7]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[ 4.34360753e-01  1.33847958e-05]
+ [ 1.33847958e-05 -4.34360753e-01]]
+group is:  [8, 9]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[-1.51033855e-16  1.67097560e-16]
+ [ 1.67097560e-16  2.97053199e-18]]
+group is:  [8, 9]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[-1.51033855e-16  1.67097560e-16]
+ [ 1.67097560e-16  2.97053199e-18]]
+group is:  [3, 10]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[5.32715903e-06 2.72263385e-16]
+ [2.85485405e-16 2.11195135e-04]]
+group is:  [11]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[-2.86927399e-17]]
+group is:  [12]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[3.28386711e-18]]
+group is:  [14]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[2.12423504e-17]]
+group is:  [15]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[6.7623262e-17]]
+group is:  [16, 17]
+[[ 8.38116279e-15 -1.00000000e+00]
+ [-1.00000000e+00 -8.38116279e-15]]
+group is:  [16, 17]
+[[ 8.38116279e-15 -1.00000000e+00]
+ [-1.00000000e+00 -8.38116279e-15]]
+SymOP sigma_{xz}      [0 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0]
+SymOP C2z             [-1 -1 -1  1 -1 -1  1 -1  1  1  1  1  1  1  1  1 -1 -1]
+SymOP sigma_{xy}      [ 1  1  1 -1  1  1 -1  1  1  1 -1 -1 -1 -1  1  1 -1 -1]
+group is:  [0, 7]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[ 4.34360753e-01  1.33847958e-05]
+ [ 1.33847958e-05 -4.34360753e-01]]
+group is:  [1, 5]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[-0.43395573 -0.00058043]
+ [-0.00058043  0.43395573]]
+group is:  [2, 4]
+[[-4.05050579e-04 -9.99406175e-01]
+ [-9.99406175e-01  4.05050579e-04]]
+group is:  [3, 10]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[-5.32715903e-06 -2.73249388e-16]
+ [-2.85485405e-16 -2.11195135e-04]]
+group is:  [2, 4]
+[[-4.05050579e-04 -9.99406175e-01]
+ [-9.99406175e-01  4.05050579e-04]]
+group is:  [1, 5]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[-0.43395573 -0.00058043]
+ [-0.00058043  0.43395573]]
+group is:  [0, 7]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[ 4.34360753e-01  1.33847958e-05]
+ [ 1.33847958e-05 -4.34360753e-01]]
+group is:  [8, 9]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[-1.51033855e-16  1.65702772e-16]
+ [ 1.70056352e-16  2.97053199e-18]]
+group is:  [8, 9]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[-1.51033855e-16  1.65702772e-16]
+ [ 1.70056352e-16  2.97053199e-18]]
+group is:  [3, 10]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[-5.32715903e-06 -2.73249388e-16]
+ [-2.85485405e-16 -2.11195135e-04]]
+group is:  [11]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[2.86927399e-17]]
+group is:  [12]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[-3.28386711e-18]]
+group is:  [14]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[2.12423504e-17]]
+group is:  [15]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[6.7623262e-17]]
+group is:  [16, 17]
+[[-8.38116279e-15  1.00000000e+00]
+ [ 1.00000000e+00  8.38116279e-15]]
+group is:  [16, 17]
+[[-8.38116279e-15  1.00000000e+00]
+ [ 1.00000000e+00  8.38116279e-15]]
+SymOP C2x             [ 0  0  0  0  0  0 -1  0  0  0  0  0  0 -1  0  0  0  0]
+group is:  [0, 7]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[-4.34360753e-01 -1.33847958e-05]
+ [-1.33847958e-05  4.34360753e-01]]
+group is:  [1, 5]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[ 0.43395573  0.00058043]
+ [ 0.00058043 -0.43395573]]
+group is:  [2, 4]
+[[ 4.05050579e-04  9.99406175e-01]
+ [ 9.99406175e-01 -4.05050579e-04]]
+group is:  [3, 10]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[5.32715903e-06 2.72263385e-16]
+ [2.85485405e-16 2.11195135e-04]]
+group is:  [2, 4]
+[[ 4.05050579e-04  9.99406175e-01]
+ [ 9.99406175e-01 -4.05050579e-04]]
+group is:  [1, 5]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[ 0.43395573  0.00058043]
+ [ 0.00058043 -0.43395573]]
+group is:  [0, 7]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[-4.34360753e-01 -1.33847958e-05]
+ [-1.33847958e-05  4.34360753e-01]]
+group is:  [8, 9]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[-1.51033855e-16  1.67097560e-16]
+ [ 1.67097560e-16  2.97053199e-18]]
+group is:  [8, 9]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[-1.51033855e-16  1.67097560e-16]
+ [ 1.67097560e-16  2.97053199e-18]]
+group is:  [3, 10]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[5.32715903e-06 2.72263385e-16]
+ [2.85485405e-16 2.11195135e-04]]
+group is:  [11]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[-2.86927399e-17]]
+group is:  [12]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[3.28386711e-18]]
+group is:  [14]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[2.12423504e-17]]
+group is:  [15]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[6.7623262e-17]]
+group is:  [16, 17]
+[[-8.38116279e-15  1.00000000e+00]
+ [ 1.00000000e+00  8.38116279e-15]]
+group is:  [16, 17]
+[[-8.38116279e-15  1.00000000e+00]
+ [ 1.00000000e+00  8.38116279e-15]]
+SymOP Sigma_{yz}      [0 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0]
+group is:  [0, 7]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[ 1.33847958e-05 -4.34360753e-01]
+ [-4.34360753e-01 -1.33847958e-05]]
+group is:  [1, 5]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[ 0.00058043 -0.43395573]
+ [-0.43395573 -0.00058043]]
+group is:  [3, 10]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[ 5.32715903e-06 -2.35268089e-17]
+ [-3.13185172e-17 -2.11195135e-04]]
+group is:  [1, 5]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[ 0.00058043 -0.43395573]
+ [-0.43395573 -0.00058043]]
+group is:  [0, 7]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[ 1.33847958e-05 -4.34360753e-01]
+ [-4.34360753e-01 -1.33847958e-05]]
+group is:  [8, 9]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[-1.51033855e-16  3.88013953e-16]
+ [ 3.76250641e-16 -2.97053199e-18]]
+group is:  [8, 9]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[-1.51033855e-16  3.88013953e-16]
+ [ 3.76250641e-16 -2.97053199e-18]]
+group is:  [3, 10]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[ 5.32715903e-06 -2.35268089e-17]
+ [-3.13185172e-17 -2.11195135e-04]]
+group is:  [11]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[2.86927399e-17]]
+group is:  [12]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[3.28386711e-18]]
+group is:  [14]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[2.12423504e-17]]
+group is:  [15]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[-6.7623262e-17]]
+SymOP I+C2/[1,-1,0]   [ 0  0  1  0 -1  0  1  0  0  0  0  0  0 -1  0  0  1 -1]
+group is:  [0, 7]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[-1.33847958e-05  4.34360753e-01]
+ [ 4.34360753e-01  1.33847958e-05]]
+group is:  [1, 5]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[-0.00058043  0.43395573]
+ [ 0.43395573  0.00058043]]
+group is:  [3, 10]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[-5.32715903e-06  3.30514349e-17]
+ [ 3.13185172e-17  2.11195135e-04]]
+group is:  [1, 5]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[-0.00058043  0.43395573]
+ [ 0.43395573  0.00058043]]
+group is:  [0, 7]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[-1.33847958e-05  4.34360753e-01]
+ [ 4.34360753e-01  1.33847958e-05]]
+group is:  [8, 9]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[-1.51033855e-16  3.60258377e-16]
+ [ 3.60978065e-16 -2.97053199e-18]]
+group is:  [8, 9]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[-1.51033855e-16  3.60258377e-16]
+ [ 3.60978065e-16 -2.97053199e-18]]
+group is:  [3, 10]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[-5.32715903e-06  3.30514349e-17]
+ [ 3.13185172e-17  2.11195135e-04]]
+group is:  [11]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[-2.86927399e-17]]
+group is:  [12]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[-3.28386711e-18]]
+group is:  [14]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[2.12423504e-17]]
+group is:  [15]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[-6.7623262e-17]]
+SymOP C2/[1,-1,0]     [ 0  0 -1  0  1  0 -1  0  0  0  0  0  0  1  0  0  1 -1]
+group is:  [0, 7]
+[[ 1.00925195e-16  9.99973230e-01]
+ [-9.99973230e-01 -1.00925195e-16]]
+group is:  [1, 5]
+[[ 1.08537787e-18 -9.98839133e-01]
+ [ 9.98839133e-01 -1.08537787e-18]]
+group is:  [2, 4]
+[[-3.94019893e-21  9.98812350e-01]
+ [-9.98812350e-01  3.94019893e-21]]
+group is:  [2, 4]
+[[-3.94019893e-21  9.98812350e-01]
+ [-9.98812350e-01  3.94019893e-21]]
+group is:  [1, 5]
+[[ 1.08537787e-18 -9.98839133e-01]
+ [ 9.98839133e-01 -1.08537787e-18]]
+group is:  [0, 7]
+[[ 1.00925195e-16  9.99973230e-01]
+ [-9.99973230e-01 -1.00925195e-16]]
+group is:  [16, 17]
+[[ 5.59801255e-20 -1.00000000e+00]
+ [ 1.00000000e+00 -5.59801255e-20]]
+group is:  [16, 17]
+[[ 5.59801255e-20 -1.00000000e+00]
+ [ 1.00000000e+00 -5.59801255e-20]]
+SymOP I+C4Z           [ 0  0  0  1  0  0 -1  0 -1  1 -1 -1  1  1 -1  1  0  0]
+group is:  [0, 7]
+[[-1.00925195e-16 -9.99973230e-01]
+ [ 9.99973230e-01  1.00925195e-16]]
+group is:  [1, 5]
+[[-1.08537787e-18  9.98839133e-01]
+ [-9.98839133e-01  1.08537787e-18]]
+group is:  [2, 4]
+[[ 3.94019893e-21 -9.98812350e-01]
+ [ 9.98812350e-01 -3.94019893e-21]]
+group is:  [2, 4]
+[[ 3.94019893e-21 -9.98812350e-01]
+ [ 9.98812350e-01 -3.94019893e-21]]
+group is:  [1, 5]
+[[-1.08537787e-18  9.98839133e-01]
+ [-9.98839133e-01  1.08537787e-18]]
+group is:  [0, 7]
+[[-1.00925195e-16 -9.99973230e-01]
+ [ 9.99973230e-01  1.00925195e-16]]
+group is:  [16, 17]
+[[ 5.59801255e-20 -1.00000000e+00]
+ [ 1.00000000e+00 -5.59801255e-20]]
+group is:  [16, 17]
+[[ 5.59801255e-20 -1.00000000e+00]
+ [ 1.00000000e+00 -5.59801255e-20]]
+SymOP C^{1}_4Z        [ 0  0  0 -1  0  0  1  0 -1  1  1  1 -1 -1 -1  1  0  0]
+group is:  [0, 7]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[-1.33847958e-05  4.34360753e-01]
+ [ 4.34360753e-01  1.33847958e-05]]
+group is:  [1, 5]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[-0.00058043  0.43395573]
+ [ 0.43395573  0.00058043]]
+group is:  [3, 10]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[ 5.32715903e-06 -2.35268089e-17]
+ [-3.13185172e-17 -2.11195135e-04]]
+group is:  [1, 5]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[-0.00058043  0.43395573]
+ [ 0.43395573  0.00058043]]
+group is:  [0, 7]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[-1.33847958e-05  4.34360753e-01]
+ [ 4.34360753e-01  1.33847958e-05]]
+group is:  [8, 9]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[-1.51033855e-16  3.88013953e-16]
+ [ 3.76250641e-16 -2.97053199e-18]]
+group is:  [8, 9]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[-1.51033855e-16  3.88013953e-16]
+ [ 3.76250641e-16 -2.97053199e-18]]
+group is:  [3, 10]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[ 5.32715903e-06 -2.35268089e-17]
+ [-3.13185172e-17 -2.11195135e-04]]
+group is:  [11]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[2.86927399e-17]]
+group is:  [12]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[3.28386711e-18]]
+group is:  [14]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[2.12423504e-17]]
+group is:  [15]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[-6.7623262e-17]]
+SymOP I+C2/[1,1,0]    [ 0  0 -1  0  1  0  1  0  0  0  0  0  0 -1  0  0 -1  1]
+group is:  [0, 7]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[ 1.33847958e-05 -4.34360753e-01]
+ [-4.34360753e-01 -1.33847958e-05]]
+group is:  [1, 5]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[ 0.00058043 -0.43395573]
+ [-0.43395573 -0.00058043]]
+group is:  [3, 10]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[-5.32715903e-06  3.30514349e-17]
+ [ 3.13185172e-17  2.11195135e-04]]
+group is:  [1, 5]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[ 0.00058043 -0.43395573]
+ [-0.43395573 -0.00058043]]
+group is:  [0, 7]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[ 1.33847958e-05 -4.34360753e-01]
+ [-4.34360753e-01 -1.33847958e-05]]
+group is:  [8, 9]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[-1.51033855e-16  3.60258377e-16]
+ [ 3.60978065e-16 -2.97053199e-18]]
+group is:  [8, 9]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[-1.51033855e-16  3.60258377e-16]
+ [ 3.60978065e-16 -2.97053199e-18]]
+group is:  [3, 10]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[-5.32715903e-06  3.30514349e-17]
+ [ 3.13185172e-17  2.11195135e-04]]
+group is:  [11]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[-2.86927399e-17]]
+group is:  [12]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[-3.28386711e-18]]
+group is:  [14]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[2.12423504e-17]]
+group is:  [15]
+CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!
+It is not appropriately normed!!!
+[[-6.7623262e-17]]
+SymOP C2/[1,1,0]      [ 0  0  1  0 -1  0 -1  0  0  0  0  0  0  1  0  0 -1  1]
+group is:  [0, 7]
+[[-1.00925195e-16 -9.99973230e-01]
+ [ 9.99973230e-01  1.00925195e-16]]
+group is:  [1, 5]
+[[-1.08537787e-18  9.98839133e-01]
+ [-9.98839133e-01  1.08537787e-18]]
+group is:  [2, 4]
+[[ 3.94019893e-21 -9.98812350e-01]
+ [ 9.98812350e-01 -3.94019893e-21]]
+group is:  [2, 4]
+[[ 3.94019893e-21 -9.98812350e-01]
+ [ 9.98812350e-01 -3.94019893e-21]]
+group is:  [1, 5]
+[[-1.08537787e-18  9.98839133e-01]
+ [-9.98839133e-01  1.08537787e-18]]
+group is:  [0, 7]
+[[-1.00925195e-16 -9.99973230e-01]
+ [ 9.99973230e-01  1.00925195e-16]]
+group is:  [16, 17]
+[[-5.59801255e-20  1.00000000e+00]
+ [-1.00000000e+00  5.59801255e-20]]
+group is:  [16, 17]
+[[-5.59801255e-20  1.00000000e+00]
+ [-1.00000000e+00  5.59801255e-20]]
+SymOP I+C2/[0,0,1]    [ 0  0  0  1  0  0 -1  0 -1  1 -1 -1  1  1 -1  1  0  0]
+group is:  [0, 7]
+[[ 1.00925195e-16  9.99973230e-01]
+ [-9.99973230e-01 -1.00925195e-16]]
+group is:  [1, 5]
+[[ 1.08537787e-18 -9.98839133e-01]
+ [ 9.98839133e-01 -1.08537787e-18]]
+group is:  [2, 4]
+[[-3.94019893e-21  9.98812350e-01]
+ [-9.98812350e-01  3.94019893e-21]]
+group is:  [2, 4]
+[[-3.94019893e-21  9.98812350e-01]
+ [-9.98812350e-01  3.94019893e-21]]
+group is:  [1, 5]
+[[ 1.08537787e-18 -9.98839133e-01]
+ [ 9.98839133e-01 -1.08537787e-18]]
+group is:  [0, 7]
+[[ 1.00925195e-16  9.99973230e-01]
+ [-9.99973230e-01 -1.00925195e-16]]
+group is:  [16, 17]
+[[-5.59801255e-20  1.00000000e+00]
+ [-1.00000000e+00  5.59801255e-20]]
+group is:  [16, 17]
+[[-5.59801255e-20  1.00000000e+00]
+ [-1.00000000e+00  5.59801255e-20]]
+SymOP C^3_4           [ 0  0  0 -1  0  0  1  0 -1  1  1  1 -1 -1 -1  1  0  0]

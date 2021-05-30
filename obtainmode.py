@@ -1,5 +1,6 @@
 import numpy as np
 import analyzePH
+import modematch
 def obtainmode(natom,masslist,dfptin,dfptout):
   dyn=analyzePH.obtaindyn(natom,dfptout);
   for i in range(natom):
@@ -13,4 +14,18 @@ def obtainmode(natom,masslist,dfptin,dfptout):
       dyn2D[(i*3):((i+1)*3),(j*3):((j+1)*3)]=np.copy(dyn[i,j,0:3,0:3]);
   w,v=np.linalg.eig(dyn2D);
   v=v.transpose();
+  v=schmidt(w,v);
   return [w,v];
+def schmidt(w,v):
+  wgroup=modematch.groupmode(w);#Gram-Schmidt Process#
+  re=np.copy(v);
+  for i in range(len(wgroup)):
+    if len(wgroup[i])==1:
+      pass;
+    else:
+      group=wgroup[i];
+      for j in range(len(group)):
+        for k in range(0,j):
+          re[group[j]]=re[group[j]]-re[group[k]].dot(re[group[j]])*re[group[k]];
+        re[group[j]]=np.copy(re[group[j]]/np.linalg.norm(re[group[j]]));
+  return re;

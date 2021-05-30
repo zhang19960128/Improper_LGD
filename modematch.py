@@ -11,16 +11,26 @@ def modematch(symop,Tlist,Ev,FREQ,axis):
       matchcoeff[i]=int(coeff/np.abs(coeff));
     else:
       groupid=findgroup(i,grouplist);
+      print("group is: ",grouplist[groupid])
       Dimension=len(grouplist[groupid]);
       transmatrix=np.zeros((Dimension,Dimension));
       for j in range(Dimension):
         vOP=symmop.symoperate_matrix_op(symop,Tlist,Ev[grouplist[groupid][j]]);
+        coeff=findmodematchsubspace(vOP,Ev,grouplist[groupid]);
+        if np.abs(np.linalg.norm(coeff)-1.0) > 1e-1:
+          pass
+          print("It is not appropriately normed!!!")
+        for k in range(Dimension):
+          transmatrix[k][j]=coeff[k];
       matchcoeff[i]=0;
+      print(transmatrix)
+      for i in range(Dimension):
+        matchcoeff[i]=matchcoeff[i]+transmatrix[i][i];
   return matchcoeff;
 def findgroup(k,gplist):
   for i in range(len(gplist)):
     for j in range(len(gplist[i])):
-      if np.abs(k - gplist[i][j]) < 1e-6;
+      if np.abs(k - gplist[i][j]) < 1e-6:
         return i;
   return -1;
 def groupmode(w):
@@ -51,7 +61,7 @@ def findmodematchsubspace(v1,v,subgroup):
   for i in range(len(coeff)):
     subv=subv+coeff[i]*v[subgroup[i]];
   subv=subv/np.linalg.norm(subv);
-  if np.abs(subv.dot(v1)) < 0.90:
+  if np.abs(subv.dot(v1)) < 0.95:
     print("CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!")
   return(coeff)
 def groupmatchoperation(w,symop,Tlist,Ev,axis):
@@ -72,3 +82,22 @@ def groupmatchoperation(w,symop,Tlist,Ev,axis):
     else:
       pass;
   return([matchcoeff,matchmode])
+def modecheck(v):
+  re=1;
+  print("DM is:",len(v))
+  for i in range(len(v)):
+    for j in range(len(v)):
+      if i==j:
+        if np.abs(v[i].dot(v[j])-1.0) < 1e-6:
+          re=re*1;
+        else:
+          re=re*0;
+      else:
+        if np.abs(v[i].dot(v[j])) < 1e-6:
+          re=re*1;
+        else:
+          re=re*0;
+  if np.abs(re-1) < 1e-6:
+    print("Mode Orthonormal Successful");
+  else:
+    print("Mode Orthonormal Unsuccessful");
