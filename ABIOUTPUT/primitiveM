@@ -1,25 +1,25 @@
-# Crystalline AlAs : computation of the response to homogeneous
-# electric field and atomic displacements, at q=X, q=L and 
-# an acoustic mode close to q=Gamma
+ndtset 2
+#DATASET1 : scf calculation: GS WF in the BZ
+#********************************************
+   prtden1    1
+    prtwf1    1
+   kptopt1    3
+   toldfe1    1.0d-13
+    nstep1    100
 
-  ndtset  2
 
-#Ground state calculation
-  kptopt1   1             # Automatic generation of k points, taking
-                          # into account the symmetry
-  tolvrs1   1.0d-18       # SCF stopping criterion
-  prtden1   1             # Will be needed for dataset 4
-#Response Function calculation : phonon at X
-  rfphon2   1             # Activate the calculation of the atomic dispacement perturbations
- rfatpol2   1 6           # All the atoms will be displaced
-   rfdir2   1 1 1         # Need all directions but ABINIT will use symmetries if possible
-    nqpt2   1
-     qpt2   0.5 0.5 0.0   # This is a calculation at the X point
-  getwfk2   1             # Uses as input wfs the output wfs of the dataset 1
-  kptopt2   3             # Automatic generation of k points,
-                          # no use of symmetries to decrease 
-                          # the size of the k point set.
-  tolvrs2   1.0d-8
+#DATASET2 : linear response to atomic displacements
+#**************************************************
+   getwfk2    1
+    rfdir2    1 1 1
+   rfphon2    1
+  rfatpol2    1 6
+   tolvrs2    1.0d-13
+   kptopt2    3
+    nstep2    100
+     nqpt2    1
+      qpt2    0.5 0.5 0.0
+
 #######################################################################
 #Common input variables
 

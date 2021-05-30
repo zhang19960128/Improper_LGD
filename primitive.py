@@ -41,7 +41,7 @@ def obtainprimitivemode(natom,dfptin,dfptout,modename):
   rank=comm.Get_rank();
   if rank==0:
     for i in range(len(w)):
-      IOmode.printmode(Hposition,namelist,axis,[v[i]],modename+"{0:6.2f}".format(cmath.sqrt(w[i])*np.sqrt(sciconst.Ha/sciconst.bohr/sciconst.bohr/sciconst.aumass)*10**-12*33.35641/2/3.141592653));
+      IOmode.printmode(Hposition,namelist,masslist,axis,[v[i]],modename+"{0:6.2f}".format(cmath.sqrt(w[i])*np.sqrt(sciconst.Ha/sciconst.bohr/sciconst.bohr/sciconst.aumass)*10**-12*33.35641/2/3.141592653));
   rotationmatrix=np.array([[np.sqrt(2)/2,np.sqrt(2)/2,0],[-np.sqrt(2)/2,np.sqrt(2)/2,0],[0,0,1]]);
   scale=np.array([np.sqrt(2),np.sqrt(2),1]);
   [primitive,axis]=rotate(Hposition,axis,rotationmatrix,scale);

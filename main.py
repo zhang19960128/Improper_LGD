@@ -27,22 +27,27 @@ ExpandPosition=analyzePH.readposition(axis,inputfiles.dfptinExp,inputfiles.natom
 EvM=extend.modemap(ExpandPosition,masslist,axis,primitiveM,vM.real,-1);
 EvGamma=extend.modemap(ExpandPosition,masslist,axis,primitiveGa,vGa.real,1)
 if rank==0:
-  IOmode.printmode(ExpandPosition,namelist,axis,EvM,inputfiles.modeExpMname);
-  IOmode.printmode(ExpandPosition,namelist,axis,EvGamma,inputfiles.modeExpGaname);
+  IOmode.printmode(ExpandPosition,namelist,masslist,axis,EvM,inputfiles.modeExpMname);
+  IOmode.printmode(ExpandPosition,namelist,masslist,axis,EvGamma,inputfiles.modeExpGaname);
 symop=analyzePH.readsymmetry(inputfiles.dfptoutExp);
 length=len(symop)
 localsymop=symop[rank:length:size];
 localTlist=check.check(localsymop,axis,masslist,ExpandPosition);
 modematch.modecheck(EvGamma);
 modematch.modecheck(EvM);
-print(modematch.groupmode(wM))
+print(modematch.groupmode(wGa))
 print('-------------------------GAMMA------------------------------------');
 for i in range(len(localsymop)):
   matchcoeff=modematch.modematch(localsymop[i],localTlist[i],EvGamma,wGa,axis);
-#  np.set_printoptions(formatter={'all':lambda x: "{:^3d}".format(x)})
-  print("SymOP {0:15s}".format(SYMM.operations[i]),matchcoeff)
+  startstr="";
+  for j in range(len(matchcoeff)):
+    startstr=startstr+" {:4.0f}".format(matchcoeff[j])
+  print("SymOP {0:15s}".format(SYMM.operations[i]),startstr)
 print('-------------------------  M  ------------------------------------');
+print(modematch.groupmode(wM))
 for i in range(len(localsymop)):
   matchcoeff=modematch.modematch(localsymop[i],localTlist[i],EvM,wM,axis,debug=0);
-#  np.set_printoptions(formatter={'all':lambda x: "{:^3d}".format(x)})
-  print("SymOP {0:15s}".format(SYMM.operations[i]),matchcoeff)
+  startstr="";
+  for j in range(len(matchcoeff)):
+    startstr=startstr+" {:4.0f}".format(matchcoeff[j])
+  print("SymOP {0:15s}".format(SYMM.operations[i]),startstr)

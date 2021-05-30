@@ -1,10 +1,7 @@
 import numpy as np
 import symmop
-def printmodetoscreen(Ev):
-  for i in range(int(len(Ev)/3)):
-    print("{0:10.7f} {1:10.7f} {2:10.7f}".format(Ev[3*i+0],Ev[3*i+1],Ev[3*i+2]));
 def modematch(symop,Tlist,Ev,FREQ,axis,debug=0):
-  matchcoeff=np.zeros(len(Ev),dtype=int);
+  matchcoeff=np.zeros(len(Ev));
   grouplist=groupmode(FREQ);
   for i in range(len(Ev)):
 #    vOP=symmop.symoperate(symop,Tlist,Ev[i],axis);
@@ -20,7 +17,7 @@ def modematch(symop,Tlist,Ev,FREQ,axis,debug=0):
       transmatrix=np.zeros((Dimension,Dimension));
       for j in range(Dimension):
         vOP=symmop.symoperate_matrix_op(symop,Tlist,Ev[grouplist[groupid][j]]);
-        coeff=findmodematchsubspace(vOP,Ev,grouplist[groupid],debug);
+        [coeff,matchpercentage]=findmodematchsubspace(vOP,Ev,grouplist[groupid],debug);
         if debug:
           print(symop)
         if np.abs(np.linalg.norm(coeff)-1.0) > 1e-1:
@@ -34,6 +31,8 @@ def modematch(symop,Tlist,Ev,FREQ,axis,debug=0):
         print(transmatrix)
       for i in range(Dimension):
         matchcoeff[i]=matchcoeff[i]+transmatrix[i][i];
+      if np.abs(matchpercentage) < 0.95:
+        matchcoeff[i]=np.nan;
   return matchcoeff;
 def findgroup(k,gplist):
   for i in range(len(gplist)):
@@ -71,25 +70,7 @@ def findmodematchsubspace(v1,v,subgroup,debug=0):
   subv=subv/np.linalg.norm(subv);
   if np.abs(subv.dot(v1)) < 0.95 and debug:
     print("CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!= matchcoeff:=",np.abs(subv.dot(v1)))
-  return(coeff)
-def groupmatchoperation(w,symop,Tlist,Ev,axis):
-  gp=groupmode(w);
-  matchcoeff=[];
-  matchmode=[];
-  for i in range(len(gp)):
-    groupindex=i;
-    vOP=symmop.symoperate(symop,Tlist,Ev[gp[groupindex][0]],axis);
-    re=findmodematchsubspace(vOP,Ev,gp[groupindex]);
-    for j in range(20):
-      vOPafter=symmop.symoperate(symop,Tlist,re[1],axis);
-      re=findmodematchsubspace(vOPafter,Ev,gp[groupindex]);
-    match=re[1].dot(vOPafter);
-    if np.abs(match) > 0.90:
-      matchcoeff.append(match);
-      matchmode.append(re[1]);
-    else:
-      pass;
-  return([matchcoeff,matchmode])
+  return([coeff,subv.dot(v1)])
 def modecheck(v):
   re=1;
   print("DM is:",len(v))
@@ -109,3 +90,26 @@ def modecheck(v):
     print("Mode Orthonormal Successful");
   else:
     print("Mode Orthonormal Unsuccessful");
+'''
+def groupmatchoperation(w,symop,Tlist,Ev,axis):
+  gp=groupmode(w);
+  matchcoeff=[];
+  matchmode=[];
+  for i in range(len(gp)):
+    groupindex=i;
+    vOP=symmop.symoperate(symop,Tlist,Ev[gp[groupindex][0]],axis);
+    re=findmodematchsubspace(vOP,Ev,gp[groupindex]);
+    for j in range(20):
+      vOPafter=symmop.symoperate(symop,Tlist,re[1],axis);
+      re=findmodematchsubspace(vOPafter,Ev,gp[groupindex]);
+    match=re[1].dot(vOPafter);
+    if np.abs(match) > 0.90:
+      matchcoeff.append(match);
+      matchmode.append(re[1]);
+    else:
+      pass;
+  return([matchcoeff,matchmode])
+def printmodetoscreen(Ev):
+  for i in range(int(len(Ev)/3)):
+    print("{0:10.7f} {1:10.7f} {2:10.7f}".format(Ev[3*i+0],Ev[3*i+1],Ev[3*i+2]));
+'''
