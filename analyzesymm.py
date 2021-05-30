@@ -11,8 +11,9 @@ import sequence
 import obtainmode
 from mpi4py import MPI
 import sciconst
-import groupmatch
+import modematch
 import extend
+import SYMM
 #Note that symmetry operation also move the atoms#
 comm=MPI.COMM_WORLD
 size=comm.Get_size();
@@ -28,13 +29,20 @@ EvGamma=extend.modemap(ExpandPosition,masslist,axis,primitiveGa,vGa.real,1)
 if rank==0:
   IOmode.printmode(ExpandPosition,namelist,axis,EvM,inputfiles.modeExpMname);
   IOmode.printmode(ExpandPosition,namelist,axis,EvGamma,inputfiles.modeExpGaname);
-  for i in range(len(wGa)):
-    IOmode.printmode(ExpandPosition,namelist,axis,[EvGamma[i]],inputfiles.modeExpGaname+"{0:6.2f}".format(cmath.sqrt(wGa[i])*np.sqrt(sciconst.Ha/sciconst.bohr/sciconst.bohr/sciconst.aumass)*10**-12*33.35641/2/3.141592653));
 symop=analyzePH.readsymmetry(inputfiles.dfptoutExp);
 length=len(symop)
 localsymop=symop[rank:length:size];
+for i in range(len(localsymop)):
+  print("symop "+str(i+1))
+  print(localsymop[i])
 localTlist=check.check(localsymop,axis,masslist,ExpandPosition);
-print(localsymop[3])
-[matchcoeff,matchmode]=groupmatch.groupmatchoperation(wGa,localsymop[3],localTlist[3],EvGamma,axis);
-print(len(matchmode),len(EvGamma))
-IOmode.printmode(ExpandPosition,namelist,axis,matchmode,"./MATCH/MATCHMODE");
+print('-------------------------GAMMA------------------------------------');
+for i in range(len(localsymop)):
+  matchcoeff=modematch.modematch(localsymop[i],localTlist[i],EvGamma,wGa,axis);
+  np.set_printoptions(formatter={'all':lambda x: "{:^3d}".format(x)})
+  print("SymOP {0:15s}".format(SYMM.operations[i]),matchcoeff)
+print('-------------------------  M  ------------------------------------');
+for i in range(len(localsymop)):
+  matchcoeff=modematch.modematch(localsymop[i],localTlist[i],EvM,wM,axis);
+  np.set_printoptions(formatter={'all':lambda x: "{:^3d}".format(x)})
+  print("SymOP {0:15s}".format(SYMM.operations[i]),matchcoeff)

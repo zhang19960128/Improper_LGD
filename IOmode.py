@@ -15,7 +15,7 @@ def printmode(Hposition,namelist,axis,v,modename):
     f.write("PRIMCOORD\n");
     f.write(str(natom)+" 1\n");
     for j in range(natom):
-      f.write(namelist[j]+" {0:10.7f} {1:10.7f} {2:10.7f} {3:10.7f} {4:10.7f} {5:10.7f}\n".format(Hposition[j][0],Hposition[j][1],Hposition[j][2],v[i][3*j+0],v[i][3*j+1],v[i][3*j+2]))
+      f.write(namelist[j]+" {0:10.7f} {1:10.7f} {2:10.7f} {3:10.7f} {4:10.7f} {5:10.7f}\n".format(Hposition[j][0],Hposition[j][1],Hposition[j][2],v[i][3*j+0]/5.0,v[i][3*j+1]/5.0,v[i][3*j+2]/5.0))
     f.close();
 def printmodefreq(w,natom):
   for i in range(3*natom):
