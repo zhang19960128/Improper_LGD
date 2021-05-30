@@ -43,6 +43,6 @@ for i in range(len(localsymop)):
   print("SymOP {0:15s}".format(SYMM.operations[i]),matchcoeff)
 print('-------------------------  M  ------------------------------------');
 for i in range(len(localsymop)):
-  matchcoeff=modematch.modematch(localsymop[i],localTlist[i],EvM,wM,axis);
+  matchcoeff=modematch.modematch(localsymop[i],localTlist[i],EvM,wM,axis,debug=0);
 #  np.set_printoptions(formatter={'all':lambda x: "{:^3d}".format(x)})
   print("SymOP {0:15s}".format(SYMM.operations[i]),matchcoeff)

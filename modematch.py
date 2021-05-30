@@ -1,6 +1,9 @@
 import numpy as np
 import symmop
-def modematch(symop,Tlist,Ev,FREQ,axis):
+def printmodetoscreen(Ev):
+  for i in range(int(len(Ev)/3)):
+    print("{0:10.7f} {1:10.7f} {2:10.7f}".format(Ev[3*i+0],Ev[3*i+1],Ev[3*i+2]));
+def modematch(symop,Tlist,Ev,FREQ,axis,debug=0):
   matchcoeff=np.zeros(len(Ev),dtype=int);
   grouplist=groupmode(FREQ);
   for i in range(len(Ev)):
@@ -11,19 +14,24 @@ def modematch(symop,Tlist,Ev,FREQ,axis):
       matchcoeff[i]=int(coeff/np.abs(coeff));
     else:
       groupid=findgroup(i,grouplist);
-      print("group is: ",grouplist[groupid])
+      if debug:
+        print("group is: ",grouplist[groupid])
       Dimension=len(grouplist[groupid]);
       transmatrix=np.zeros((Dimension,Dimension));
       for j in range(Dimension):
         vOP=symmop.symoperate_matrix_op(symop,Tlist,Ev[grouplist[groupid][j]]);
-        coeff=findmodematchsubspace(vOP,Ev,grouplist[groupid]);
+        coeff=findmodematchsubspace(vOP,Ev,grouplist[groupid],debug);
+        if debug:
+          print(symop)
         if np.abs(np.linalg.norm(coeff)-1.0) > 1e-1:
           pass
-          print("It is not appropriately normed!!!")
+          if debug:
+            print("It is not appropriately normed!!!")
         for k in range(Dimension):
           transmatrix[k][j]=coeff[k];
       matchcoeff[i]=0;
-      print(transmatrix)
+      if debug:
+        print(transmatrix)
       for i in range(Dimension):
         matchcoeff[i]=matchcoeff[i]+transmatrix[i][i];
   return matchcoeff;
@@ -50,7 +58,7 @@ def groupmode(w):
       groupset.append([modeset[0]]);
     modeset.remove(modeset[0]);
   return(groupset)
-def findmodematchsubspace(v1,v,subgroup):
+def findmodematchsubspace(v1,v,subgroup,debug=0):
   mat=np.zeros((len(subgroup),len(v1)));
   for i in range(len(subgroup)):
     mat[i]=np.copy(v[subgroup[i]]);
@@ -61,8 +69,8 @@ def findmodematchsubspace(v1,v,subgroup):
   for i in range(len(coeff)):
     subv=subv+coeff[i]*v[subgroup[i]];
   subv=subv/np.linalg.norm(subv);
-  if np.abs(subv.dot(v1)) < 0.95:
-    print("CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!")
+  if np.abs(subv.dot(v1)) < 0.95 and debug:
+    print("CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!= matchcoeff:=",np.abs(subv.dot(v1)))
   return(coeff)
 def groupmatchoperation(w,symop,Tlist,Ev,axis):
   gp=groupmode(w);
