@@ -5,7 +5,6 @@ import obtainmode
 import sequence
 import cmath
 import sciconst
-from mpi4py import MPI
 def rotate(Hposition,axis,operatingmatrix,scale):
   newaxis=np.copy(axis);
   for i in range(3):
@@ -37,11 +36,8 @@ def obtainprimitivemode(natom,dfptin,dfptout,modename):
   [w,v]=obtainmode.obtainmode(natom,masslist,dfptin,dfptout);
   axis=analyzePH.readaxis(dfptin);
   Hposition=analyzePH.readposition(axis,dfptin,natom);
-  comm=MPI.COMM_WORLD;
-  rank=comm.Get_rank();
-  if rank==0:
-    for i in range(len(w)):
-      IOmode.printmode(Hposition,namelist,masslist,axis,[v[i]],modename+"{0:d}".format(i));
+  for i in range(len(w)):
+    IOmode.printmode(Hposition,namelist,masslist,axis,[v[i]],modename+"{0:d}".format(i));
 #  rotationmatrix=np.array([[np.sqrt(2)/2,np.sqrt(2)/2,0],[-np.sqrt(2)/2,np.sqrt(2)/2,0],[0,0,1]]);
 #  scale=np.array([np.sqrt(2),np.sqrt(2),1]);
 #  [primitive,axis]=rotate(Hposition,axis,rotationmatrix,scale);

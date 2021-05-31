@@ -1,38 +1,29 @@
 import numpy as np
 import symmop
-def modematch(symop,Tlist,Ev,FREQ,axis,debug=0):
+def modematch(symop,Tlist,Ev,FREQ,axis):
   matchcoeff=np.zeros(len(Ev));
   grouplist=groupmode(FREQ);
   for i in range(len(Ev)):
-#    vOP=symmop.symoperate(symop,Tlist,Ev[i],axis);
-    vOP=symmop.symoperate_matrix_op(symop,Tlist,Ev[i]);
+    vOP=symmop.symoperate_matrix_op(symop,Tlist,Ev[i]);#vOP=symmop.symoperate(symop,Tlist,Ev[i],axis);
     coeff=vOP.dot(Ev[i]);
     if np.abs(coeff) > 0.95:
       matchcoeff[i]=int(coeff/np.abs(coeff));
+      if np.abs(np.abs(matchcoeff[i])-3.0) < 1e-5:
+        print("matchcoeff[i]:=",matchcoeff[i])
     else:
       groupid=findgroup(i,grouplist);
-      if debug:
-        print("group is: ",grouplist[groupid])
       Dimension=len(grouplist[groupid]);
       transmatrix=np.zeros((Dimension,Dimension));
       for j in range(Dimension):
         vOP=symmop.symoperate_matrix_op(symop,Tlist,Ev[grouplist[groupid][j]]);
-        [coeff,matchpercentage]=findmodematchsubspace(vOP,Ev,grouplist[groupid],debug);
-        if debug:
-          print(symop)
+        [coeff,matchpercentage]=findmodematchsubspace(vOP,Ev,grouplist[groupid]);
         if np.abs(np.linalg.norm(coeff)-1.0) > 1e-1:
           pass
-          if debug:
-            print("It is not appropriately normed!!!")
         for k in range(Dimension):
           transmatrix[k][j]=coeff[k];
         if np.abs(matchpercentage) < 0.95:
           transmatrix[j][j]=np.nan;
-      matchcoeff[i]=0;
-      if debug:
-        print(transmatrix)
-      for i in range(Dimension):
-        matchcoeff[i]=matchcoeff[i]+transmatrix[i][i];
+      matchcoeff[i]=np.trace(transmatrix);
       if np.abs(matchpercentage) < 0.95:
         matchcoeff[i]=np.nan;
   return matchcoeff;
@@ -59,7 +50,7 @@ def groupmode(w):
       groupset.append([modeset[0]]);
     modeset.remove(modeset[0]);
   return(groupset)
-def findmodematchsubspace(v1,v,subgroup,debug=0):
+def findmodematchsubspace(v1,v,subgroup):
   mat=np.zeros((len(subgroup),len(v1)));
   for i in range(len(subgroup)):
     mat[i]=np.copy(v[subgroup[i]]);
@@ -70,7 +61,7 @@ def findmodematchsubspace(v1,v,subgroup,debug=0):
   for i in range(len(coeff)):
     subv=subv+coeff[i]*v[subgroup[i]];
   subv=subv/np.linalg.norm(subv);
-  if np.abs(subv.dot(v1)) < 0.95 and debug:
+  if np.abs(subv.dot(v1)) < 0.95:
     print("CANNOT FIND SUBSPACE MATCH AFTER OPERATIONS!!!!!= matchcoeff:=",np.abs(subv.dot(v1)))
   return([coeff,subv.dot(v1)])
 def modecheck(v):

@@ -4,7 +4,6 @@ import math
 import cmath
 import sys
 import analyzePH
-from mpi4py import MPI
 def check(symop,axis,position):
   length=len(symop);
   sp=np.shape(position);
