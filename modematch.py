@@ -26,6 +26,8 @@ def modematch(symop,Tlist,Ev,FREQ,axis,debug=0):
             print("It is not appropriately normed!!!")
         for k in range(Dimension):
           transmatrix[k][j]=coeff[k];
+        if np.abs(matchpercentage) < 0.95:
+          transmatrix[j][j]=np.nan;
       matchcoeff[i]=0;
       if debug:
         print(transmatrix)
@@ -77,39 +79,20 @@ def modecheck(v):
   for i in range(len(v)):
     for j in range(len(v)):
       if i==j:
-        if np.abs(v[i].dot(v[j])-1.0) < 1e-6:
+        if np.abs(v[i].dot(v[j])-1.0) < 1e-4:
           re=re*1;
         else:
           re=re*0;
       else:
-        if np.abs(v[i].dot(v[j])) < 1e-6:
+        if np.abs(v[i].dot(v[j])) < 1e-4:
           re=re*1;
         else:
           re=re*0;
-  if np.abs(re-1) < 1e-6:
+  if np.abs(re-1) < 1e-4:
     print("Mode Orthonormal Successful");
   else:
     print("Mode Orthonormal Unsuccessful");
-'''
-def groupmatchoperation(w,symop,Tlist,Ev,axis):
-  gp=groupmode(w);
-  matchcoeff=[];
-  matchmode=[];
-  for i in range(len(gp)):
-    groupindex=i;
-    vOP=symmop.symoperate(symop,Tlist,Ev[gp[groupindex][0]],axis);
-    re=findmodematchsubspace(vOP,Ev,gp[groupindex]);
-    for j in range(20):
-      vOPafter=symmop.symoperate(symop,Tlist,re[1],axis);
-      re=findmodematchsubspace(vOPafter,Ev,gp[groupindex]);
-    match=re[1].dot(vOPafter);
-    if np.abs(match) > 0.90:
-      matchcoeff.append(match);
-      matchmode.append(re[1]);
-    else:
-      pass;
-  return([matchcoeff,matchmode])
-def printmodetoscreen(Ev):
-  for i in range(int(len(Ev)/3)):
-    print("{0:10.7f} {1:10.7f} {2:10.7f}".format(Ev[3*i+0],Ev[3*i+1],Ev[3*i+2]));
-'''
+    for i in range(len(v)):
+      for j in range(len(v)):
+        if i!=j:
+          print("UnDiag=({0:2d},{1:2d} {2:10.7f})".format(i,j,v[i].dot(v[j])));

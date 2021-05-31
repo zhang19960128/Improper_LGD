@@ -25,8 +25,8 @@ ndtset 2
 
 #Definition of the unit cell
 acell 3.587 3.587 5.07311 angstrom
-rprim 1.0 0.0 0.0
-      0.0 1.0 0.0
+rprim 0.7071067 0.7071067 0.0
+      -0.7071067 0.7071067 0.0
       0.0 0.0 1.0
 
 symmorphi 0

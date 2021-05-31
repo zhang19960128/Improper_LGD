@@ -28,6 +28,7 @@ def readaxis(filename):
   files=open(filename,'r');
   lines=files.readlines();
   axis=np.zeros((3,3));
+  scale=np.zeros(3);
   for i in range(len(lines)):
     if lines[i].find("acell")!=-1:
       if lines[i].lower().find("bohr")!=-1:
@@ -38,8 +39,16 @@ def readaxis(filename):
         autoA=0.529;
       line=lines[i].split();
       for j in range(3):
-        axis[j][j]=float(line[j+1])*autoA;
-  return axis;
+        scale[j]=float(line[j+1])*autoA;
+    if lines[i].find("rprim")!=-1:
+      for j in range(3):
+        line=lines[i+j].split();
+        for k in range(-3,0,1):
+          axis[j][k]=float(line[k]);
+  reaxis=np.zeros((3,3));
+  for i in range(3):
+    reaxis[i]=scale[i]*axis[i];
+  return reaxis;
 def readposition(axis,scfin,natoms):
   scfinput=open(scfin,'r');
   lines=scfinput.readlines();
