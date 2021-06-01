@@ -18,6 +18,8 @@ def modematch(symop,Tlist,Ev,FREQ,axis):
         vOP=symmop.symoperate_matrix_op(symop,Tlist,Ev[grouplist[groupid][j]]);
         [coeff,matchpercentage]=findmodematchsubspace(vOP,Ev,grouplist[groupid]);
         if np.abs(np.linalg.norm(coeff)-1.0) > 1e-1:
+          print("NOT Normalized!",np.linalg.norm(coeff));
+        else:
           pass
         for k in range(Dimension):
           transmatrix[k][j]=coeff[k];

@@ -13,6 +13,7 @@ import sciconst
 import modematch
 import extend
 import SYMM
+import IOcharacter
 #Note that symmetry operation also move the atoms#
 [masslist,namelist]=sequence.sequence(inputfiles.natomExp);
 axis=analyzePH.readaxis(inputfiles.dfptinExp);
@@ -32,10 +33,7 @@ matchcoeffGamatrix=np.zeros((len(localsymop),len(EvGamma)));
 for i in range(len(localsymop)):
   matchcoeffGa=modematch.modematch(localsymop[i],localTlist[i],EvGamma,wGa,axis);
   matchcoeffGamatrix[i]=np.copy(matchcoeffGa);
-  startstr="";
-  for j in range(len(matchcoeffGa)):
-    startstr=startstr+" {:5.2f}".format(matchcoeffGamatrix[i][j])
-  print("SymOP {0:15s}".format(SYMM.operations[i]),startstr)
+IOcharacter.printoscreencharater(SYMM.operations,matchcoeffGamatrix)
 print('-------------------------- M ------------------------------------');
 [primitiveM,wM,vM]=primitive.obtainprimitivemode(inputfiles.natomPM,inputfiles.dfptinPM,inputfiles.dfptoutPM,inputfiles.modePMname);
 EvM=extend.modemap(ExpandPosition,masslist,axis,primitiveM,vM.real,[-1,-1,-1]);
@@ -46,21 +44,21 @@ matchcoeffMmatrix=np.zeros((len(localsymop),len(EvM)));
 for i in range(len(localsymop)):
   matchcoeffM=modematch.modematch(localsymop[i],localTlist[i],EvM,wM,axis);
   matchcoeffMmatrix[i]=np.copy(matchcoeffM);
-  startstr="";
-  for j in range(len(matchcoeffM)):
-    startstr=startstr+" {:5.2f}".format(matchcoeffMmatrix[i][j])
-  print("SymOP {0:15s}".format(SYMM.operations[i]),startstr);
-print('--------------------------- LGD ----------------------------------');
-print('--------------------------- First Order with X--------------------------');
-for i in range(2,len(EvM)):
-  diff=np.linalg.norm(matchcoeffMmatrix[:,j]-matchcoeffGamatrix[:,6]);
+IOcharacter.printoscreencharater(SYMM.operations,matchcoeffMmatrix)
+FEmodeindex=6;
+print('--------------------------- LGD Gamma*Gamma ----------------------------------');
+for i in range(0,len(vGa)):
+  diff=np.linalg.norm(matchcoeffGamatrix[:,i]-matchcoeffGamatrix[:,FEmodeindex]);
   if diff < 1e-6:
-    print(i,diff)
-#print(matchcoeffMmatrix[:,7]-matchcoeffGamatrix[:,6])
-#print(matchcoeffMmatrix[:,7])
-print('-------------------------- Second Order --------------------------');
-for i in range(2,len(EvM)):
-  for j in range(2,len(EvM)):
-    diff=np.linalg.norm(matchcoeffMmatrix[:,i]*matchcoeffMmatrix[:,j]-matchcoeffGamatrix[:,6]);
+    print(i);
+print('--------------------------- LGD Gamma*M -------------------------------------');
+for i in range(0,len(vM)):
+  diff=np.linalg.norm(matchcoeffMmatrix[:,i]-matchcoeffGamatrix[:,FEmodeindex]);
+  if diff < 1e-6:
+    print(i);
+print('-------------------------- M*M --------------------------');
+for i in range(0,len(EvM)):
+  for j in range(i,len(EvM)):
+    diff=np.linalg.norm(matchcoeffMmatrix[:,i]*matchcoeffMmatrix[:,j]-matchcoeffGamatrix[:,FEmodeindex]);
     if diff < 1e-6:
       print(i,j);
