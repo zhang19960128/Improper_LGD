@@ -20,3 +20,16 @@ def printmode(Hposition,namelist,masslist,axis,v,modename):
 def printmodefreq(w,natom):
   for i in range(3*natom):
     print(cmath.sqrt(w[i]*Ha/bohr/bohr/aumass)*(10**-12)*33.35641/2/3.141592653)
+def printvector(vec):
+  temp="";
+  length=len(vec);
+  for i in range(length):
+    temp=temp+" "+"{0:7.3f}".format(vec[i]);
+  print(temp)
+def printMatrix(s):
+  print('-----------------------------------------')
+  for i in range(len(s)):
+    for j in range(len(s[0])):
+      print("{0:4.3f} ".format(s[i][j]),end="")
+    print('\n')
+  print('-----------------------------------------')

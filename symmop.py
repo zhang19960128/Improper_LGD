@@ -23,9 +23,3 @@ def symoperate_matrix_op(OP,modeindex,v):
         for n in range(3):
           Tmatrix[3*i+m][3*j+n]=OP[m][n]*switch[i][j];
   return(np.matmul(Tmatrix,v.reshape(len(v),1)).reshape(len(v)));
-def multipleOperate(v,OPlist):
-  length=len(OPlist);
-  re=symoperate(OPlist[0],v);
-  for i in range(1,length):
-    re=symoperate(OPlist[i],re);
-  return re;

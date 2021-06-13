@@ -4,18 +4,6 @@ import math
 import cmath
 import sys
 import analyzePH
-def check(symop,axis,position):
-  length=len(symop);
-  sp=np.shape(position);
-  for i in range(length):
-    OP=symop[i];
-    PafterOP=np.zeros(sp);
-    for m in range(sp[0]):
-      PafterOP[m]=np.matmul(OP,position[m,0:3].reshape((3,1))).reshape((1,3));
-    print(OP)
-    dp=analyzePH.diffposition(PafterOP,position,axis,sp[0]);
-    if np.linalg.norm(dp)<1e-7:
-      print("Check successful:----------------")
 def exactmatch(position1,Poriginal,axis):
   natom=np.shape(position1)[0];
   exact=1;

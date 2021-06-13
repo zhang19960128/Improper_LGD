@@ -8,7 +8,7 @@ def printoscreencharater(operations,outmatrix):
     line=[];
     line.append(operations[i]);
     for j in range(sp[1]):
-      line.append("{0:5.3f}".format(outmatrix[i][j]));
+      line.append("{0:3.2f}".format(outmatrix[i][j]));
     total.append(line);
   head.append("Symm Ops");
   for i in range(sp[1]):

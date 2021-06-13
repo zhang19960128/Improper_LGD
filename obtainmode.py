@@ -12,7 +12,7 @@ def obtainmode(natom,masslist,dfptin,dfptout):
   for i in range(natom):
     for j in range(natom):
       dyn2D[(i*3):((i+1)*3),(j*3):((j+1)*3)]=np.copy(dyn[i,j,0:3,0:3]);
-  w,v=np.linalg.eig(dyn2D);
+  w,v=np.linalg.eigh(dyn2D);
   v=v.transpose();
   v=schmidt(w,v);
   return [w,v];

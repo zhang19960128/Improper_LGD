@@ -1,5 +1,7 @@
 import numpy as np
+import IOmode
 import symmop
+import check
 def modematch(symop,Tlist,Ev,FREQ,axis):
   matchcoeff=np.zeros(len(Ev));
   grouplist=groupmode(FREQ);
@@ -7,9 +9,7 @@ def modematch(symop,Tlist,Ev,FREQ,axis):
     vOP=symmop.symoperate_matrix_op(symop,Tlist,Ev[i]);#vOP=symmop.symoperate(symop,Tlist,Ev[i],axis);
     coeff=vOP.dot(Ev[i]);
     if np.abs(coeff) > 0.95:
-      matchcoeff[i]=int(coeff/np.abs(coeff));
-      if np.abs(np.abs(matchcoeff[i])-3.0) < 1e-5:
-        print("matchcoeff[i]:=",matchcoeff[i])
+      matchcoeff[i]=coeff/np.abs(coeff);
     else:
       groupid=findgroup(i,grouplist);
       Dimension=len(grouplist[groupid]);
@@ -18,22 +18,73 @@ def modematch(symop,Tlist,Ev,FREQ,axis):
         vOP=symmop.symoperate_matrix_op(symop,Tlist,Ev[grouplist[groupid][j]]);
         [coeff,matchpercentage]=findmodematchsubspace(vOP,Ev,grouplist[groupid]);
         if np.abs(np.linalg.norm(coeff)-1.0) > 1e-1:
-          print("NOT Normalized!",np.linalg.norm(coeff));
+          print("NOT Normalized!",np.linalg.norm(coeff),'coeff:=',coeff,'matchpercentage is:',matchpercentage,'groupid is:=',groupid);
         else:
           pass
         for k in range(Dimension):
           transmatrix[k][j]=coeff[k];
         if np.abs(matchpercentage) < 0.95:
           transmatrix[j][j]=np.nan;
+      '''
+      print("Transform matrix:=")
+      for i in range(len(transmatrix)):
+        temp="";
+        for j in range(len(transmatrix[0])):
+          temp=temp+" {0:5.2f}".format(transmatrix[i][j]);
+        print(temp)
+      print("Trace is:=","{0:10.7f}".format(np.trace(transmatrix)))
+      '''
       matchcoeff[i]=np.trace(transmatrix);
       if np.abs(matchpercentage) < 0.95:
         matchcoeff[i]=np.nan;
+  return matchcoeff;
+def modematchsecond(symop,Tlist,Ev,FREQ,axis):
+  matchcoeff=np.zeros(len(Ev));
+  grouplist=groupmode(FREQ);
+  for i in range(len(Ev)):
+    groupid=findgroup(i,grouplist);
+    if len(grouplist[groupid])==1:
+      vOP=symmop.symoperate_matrix_op(symop,Tlist,Ev[i]);#vOP=symmop.symoperate(symop,Tlist,Ev[i],axis);
+      coeff=vOP.dot(Ev[i]);
+      if np.abs( np.abs(coeff) - 1 ) < 1e-3:
+        matchcoeff[i]=coeff;
+      else:
+        print("FATAL ERROR, vector is not mapped in subspace");
+    else:
+      groupid=findgroup(i,grouplist);
+      Dimension=len(grouplist[groupid]);
+      transmatrix=np.zeros((Dimension,Dimension));
+      for m in range(Dimension):
+        for n in range(Dimension):
+          vOP=symmop.symoperate_matrix_op(symop,Tlist,Ev[grouplist[groupid][n]]);
+          transmatrix[m][n]=vOP.dot(Ev[grouplist[groupid][m]]);
+      if( np.linalg.norm(transmatrix-np.identity(Dimension)) < 1e-6 ):
+        matchcoeff[i]=1.0;
+      elif( np.linalg.norm(transmatrix+np.identity(Dimension)) < 1e-6 ):
+        matchcoeff[i]=-1.0;
+      else:
+        matchcoeff[i]=np.trace(transmatrix);
+#      if(np.abs(np.abs(matchcoeff[i])-2)) < 1e-6 :
+#        IOmode.printMatrix(transmatrix)
+      #------Check program-----#
+      for m in range(Dimension):
+        coeff=transmatrix[:,m].reshape(Dimension);
+        add=np.zeros(len(Ev[grouplist[groupid][m]]));
+        for n in range(Dimension):
+          add=add+coeff[n]*Ev[grouplist[groupid][n]];
+        vOP=symmop.symoperate_matrix_op(symop,Tlist,Ev[grouplist[groupid][m]]);
+        difference=np.linalg.norm(vOP-add);
+        if difference > 1e-5:
+          print("FATAL ERROR, not in subspace");
+        else:
+          pass;
   return matchcoeff;
 def findgroup(k,gplist):
   for i in range(len(gplist)):
     for j in range(len(gplist[i])):
       if np.abs(k - gplist[i][j]) < 1e-6:
         return i;
+  print("!!!!!!!!!!!!!!!!!! FATAL ERROR CANNOT FIND GROUP !!!!!!!!!!!!!!!")
   return -1;
 def groupmode(w):
   length=len(w);
@@ -45,7 +96,7 @@ def groupmode(w):
     length=len(groupset);
     tick=-1;
     for i in range(length):
-      if np.abs(w[groupset[i][0]]-w[modeset[0]])/np.abs(w[groupset[i][0]])< 5*1e-2:
+      if np.abs(w[groupset[i][0]]-w[modeset[0]])/np.abs(w[groupset[i][0]]) < 5*1e-3:
         groupset[i].append(modeset[0]);
         tick=tick+1;
     if np.abs(tick+1)<1e-6:
@@ -89,3 +140,22 @@ def modecheck(v):
       for j in range(len(v)):
         if i!=j:
           print("UnDiag=({0:2d},{1:2d} {2:10.7f})".format(i,j,v[i].dot(v[j])));
+        else:
+          print("Diag=({0:2d},{1:2d} {2:10.7f})".format(i,j,v[i].dot(v[j])));
+def matchire(masslist,axis,position,modeid,mode,FREQ,opmatrix,opmatrixinrep):
+  grouplist=groupmode(FREQ);
+  groupindex=findgroup(modeid,grouplist);
+  Tlist=check.check(opmatrix,axis,masslist,position);
+  Opsubspace=[];
+  for i in range(len(opmatrix)):
+    vOP=symmop.symoperate_matrix_op(opmatrix[i],Tlista[i],mode[modeid]);
+    if np.abs(np.abs(vOP.dot(mode[modeid]))-1.0)<1e-6:
+      Opsubspace.append(vOP.dot(mode[modeid]));
+    else:
+      groupid=findgroup(i,grouplist);
+      Dimension=len(grouplist[groupid]);
+      transmatrix=np.zeros((Dimension,Dimension));
+      for m in range(Dimension):
+        for n in range(Dimension):
+          vOP=symmop.symoperate_matrix_op(symop,Tlist,Ev[grouplist[groupid][n]]);
+          transmatrix[m][n]=vOP.dot(Ev[grouplist[groupid][m]]);

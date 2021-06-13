@@ -36,8 +36,7 @@ def obtainprimitivemode(natom,dfptin,dfptout,modename):
   [w,v]=obtainmode.obtainmode(natom,masslist,dfptin,dfptout);
   axis=analyzePH.readaxis(dfptin);
   Hposition=analyzePH.readposition(axis,dfptin,natom);
-  for i in range(len(w)):
-    IOmode.printmode(Hposition,namelist,masslist,axis,[v[i]],modename+"{0:d}".format(i));
+  IOmode.printmode(Hposition,namelist,masslist,axis,v,modename);
 #  rotationmatrix=np.array([[np.sqrt(2)/2,np.sqrt(2)/2,0],[-np.sqrt(2)/2,np.sqrt(2)/2,0],[0,0,1]]);
 #  scale=np.array([np.sqrt(2),np.sqrt(2),1]);
 #  [primitive,axis]=rotate(Hposition,axis,rotationmatrix,scale);

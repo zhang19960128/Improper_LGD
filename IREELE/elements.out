@@ -1,0 +1,18 @@
+Isotropy, Version 9.4.1, December 2015
+Harold T. Stokes, Dorian M. Hatch, and Branton J. Campbell
+Brigham Young University
+Current setting is International (new ed.) with conventional basis vectors.
+Current irrep version is 2011
+Use "VALUE IRREP VERSION" to change version
+****Parent    Elements
+225 Fm-3m (E|0,0,0), (C2x|0,0,0), (C2y|0,0,0), (C2z|0,0,0), (C31-|0,0,0),
+          (C32-|0,0,0), (C33-|0,0,0), (C34-|0,0,0), (C31+|0,0,0), (C34+|0,0,0),
+          (C32+|0,0,0), (C33+|0,0,0), (C2b|0,0,0), (C4z+|0,0,0), (C4z-|0,0,0),
+          (C2a|0,0,0), (C2f|0,0,0), (C2d|0,0,0), (C4x+|0,0,0), (C4x-|0,0,0),
+          (C2e|0,0,0), (C4y-|0,0,0), (C2c|0,0,0), (C4y+|0,0,0), (I|0,0,0),
+          (SGx|0,0,0), (SGy|0,0,0), (SGz|0,0,0), (S61+|0,0,0), (S62+|0,0,0),
+          (S63+|0,0,0), (S64+|0,0,0), (S61-|0,0,0), (S64-|0,0,0), (S62-|0,0,0),
+          (S63-|0,0,0), (SGdb|0,0,0), (S4z-|0,0,0), (S4z+|0,0,0), (SGda|0,0,0),
+          (SGdf|0,0,0), (SGdd|0,0,0), (S4x-|0,0,0), (S4x+|0,0,0), (SGde|0,0,0),
+          (S4y+|0,0,0), (SGdc|0,0,0), (S4y-|0,0,0)
+*

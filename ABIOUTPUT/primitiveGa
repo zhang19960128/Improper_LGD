@@ -1,4 +1,5 @@
 ndtset 3
+chkprim 0
 #DATASET1 : scf calculation: GS WF in the BZ
 #********************************************
    prtden1    1
@@ -40,21 +41,21 @@ ndtset 3
 #Common input variables
 
 #Definition of the unit cell
-acell 3.587 3.587 5.07311 angstrom
-rprim 0.7071067 0.7071067 0.0
-      -0.7071067 0.7071067 0.0
-      0.0 0.0 1.0
+acell 3.588968551173442 3.588968551173442 5.075568 angstrom
+rprim   0.7071067 0.7071067 0.0
+       -0.7071067 0.7071067 0.0
+        0.0       0.0       1.0
 
 symmorphi 0
 pawxcdev 0
 #Definition of the atom types and pseudopotentials
 natom 6
-ntypat 3
-typat 1  2 3 3 3 3
-znucl 72 40 8
+ntypat 2
+typat 1 1 2 2 2 2
+znucl 72 8
  pp_dirpath "$ABI_PSPDIR"
 # pseudos "ATOMICDATA/Hf.GGA_PBE-JTH.xml,ATOMICDATA/Zr.GGA_PBE-JTH.xml,ATOMICDATA/O.GGA_PBE-JTH.xml"
- pseudos "pbe_s_sr/Hf.psp8,pbe_s_sr/Zr.psp8,pbe_s_sr/O.psp8"
+ pseudos "pbe_s_sr/Hf.psp8,pbe_s_sr/O.psp8"
 # pseudos "Pseudodojo_nc_sr_04_pw_standard_psp8/P.psp8, Pseudodojo_nc_sr_04_pw_standard_psp8/Al.psp8"
 
 #atomic positions. 
@@ -69,6 +70,19 @@ ecut 25
 ecutsm 0.5
 pawecutdg 30
 nband  24
+# KPOINTS
+ngkpt 6 6 8
+nshiftk 1 # this Monkhorst-Pack shift pattern is used so that the symmetry of the shifted grid
+          # is correct. A gamma-centered grid would also have the correct symmetry but would be
+          # less efficient.
+shiftk 1.0 1.0 1.0
+
+# by default, don't save files, only save files within each
+# data set as needed
+prtwf 0
+prtden 0
+prteig 0
+
 ##############################################################
 # This section is used only for regression testing of ABINIT #
 ##############################################################
