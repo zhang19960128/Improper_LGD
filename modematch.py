@@ -25,15 +25,6 @@ def modematch(symop,Tlist,Ev,FREQ,axis):
           transmatrix[k][j]=coeff[k];
         if np.abs(matchpercentage) < 0.95:
           transmatrix[j][j]=np.nan;
-      '''
-      print("Transform matrix:=")
-      for i in range(len(transmatrix)):
-        temp="";
-        for j in range(len(transmatrix[0])):
-          temp=temp+" {0:5.2f}".format(transmatrix[i][j]);
-        print(temp)
-      print("Trace is:=","{0:10.7f}".format(np.trace(transmatrix)))
-      '''
       matchcoeff[i]=np.trace(transmatrix);
       if np.abs(matchpercentage) < 0.95:
         matchcoeff[i]=np.nan;
@@ -60,13 +51,12 @@ def modematchsecond(symop,Tlist,Ev,FREQ,axis):
           transmatrix[m][n]=vOP.dot(Ev[grouplist[groupid][m]]);
       if( np.linalg.norm(transmatrix-np.identity(Dimension)) < 1e-6 ):
         matchcoeff[i]=1.0;
+        matchcoeff[i]=np.trace(transmatrix);
       elif( np.linalg.norm(transmatrix+np.identity(Dimension)) < 1e-6 ):
         matchcoeff[i]=-1.0;
+        matchcoeff[i]=np.trace(transmatrix);
       else:
         matchcoeff[i]=np.trace(transmatrix);
-#      if(np.abs(np.abs(matchcoeff[i])-2)) < 1e-6 :
-#        IOmode.printMatrix(transmatrix)
-      #------Check program-----#
       for m in range(Dimension):
         coeff=transmatrix[:,m].reshape(Dimension);
         add=np.zeros(len(Ev[grouplist[groupid][m]]));
@@ -123,15 +113,17 @@ def modecheck(v):
   for i in range(len(v)):
     for j in range(len(v)):
       if i==j:
-        if np.abs(v[i].dot(v[j])-1.0) < 1e-4:
+        if np.abs(v[i].dot(v[j])-1.0) < 1e-6:
           re=re*1;
         else:
           re=re*0;
+          print("Self Not orthogonal")
       else:
-        if np.abs(v[i].dot(v[j])) < 1e-4:
+        if np.abs(v[i].dot(v[j])) < 1e-6:
           re=re*1;
         else:
           re=re*0;
+          print("Undiag is not orthogonal: ",v[i].dot(v[j]),i,j)
   if np.abs(re-1) < 1e-4:
     print("Mode Orthonormal Successful");
   else:

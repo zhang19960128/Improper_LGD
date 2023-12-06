@@ -1,0 +1,9 @@
+ 
+--- !ERROR
+src_file: m_nctk.F90
+src_line: 861
+mpi_rank: 0
+message: |
+    nf90_open_par: o_DEN.nc - NetCDF library returned:  NetCDF: HDF error
+...
+ 

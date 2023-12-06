@@ -31,7 +31,7 @@ def matchmass(transformlist,masslist):
     else:
       exact=exact*0;
   return(exact);
-def findexactmatch(OP,axis,masslist,position):
+def findexactmatch(OP,masslist,position,axis):
   sp=np.shape(position);
   PafterOP=np.zeros(sp);
   PafterOPandT=np.zeros(sp);
@@ -57,9 +57,54 @@ def check(symop,axis,masslist,position):
   transformlist=[];
   for i in range(length):
     OP=symop[i];
-    [PafterOPandT,Transform,PafterOP]=findexactmatch(OP,axis,masslist,position);
+    [PafterOPandT,Transform,PafterOP]=findexactmatch(OP,masslist,position,axis);
     transformlist.append(Transform);
   return transformlist;
+def translation(axis,masslist,qvector,position):
+  sp=np.shape(position);
+  PafterOP=np.zeros(sp);
+  PafterOPandT=np.zeros(sp);
+  transformlist=[];
+  for m in range(sp[0]):
+    for n in range(3):
+      PafterOP[m]=PafterOP[m]+axis[n]*qvector[n];
+    PafterOP[m]=PafterOP[m]+position[m];
+  for i in range(sp[0]):
+    for j in range(sp[0]):
+      dist=analyzePH.distance(PafterOP[i],position[j],axis);
+      if dist < 1e-8 and np.abs(masslist[i]-masslist[j])<1e-8:
+        transformlist.append(j);
+        PafterOPandT[i]=np.copy(position[j]);
+  if(len(transformlist)==sp[0]):
+    pass;
+  else:
+    print("Cannot FIND MATCH")
+  switch=np.zeros((len(transformlist),len(transformlist)));
+  for i in range(sp[0]):
+    switch[transformlist[i]][i]=1;
+  return([switch,transformlist]);
+def modeafterOP(switch,natom,OP):
+  Tmatrix=np.zeros((3*natom,3*natom));
+  for i in range(natom):
+    for j in range(natom):
+      for m in range(3):
+        for n in range(3):
+          Tmatrix[3*i+m][3*j+n]=OP[m][n]*switch[i][j];
+  return(Tmatrix);
+def modeoperatingmatrix(symop,axis,masslist,qvector,position):
+  Tlist=check(symop,axis,masslist,position);
+  totalOP=[];
+  natom=len(masslist);
+  for t in range(len(qvector)):
+    for i in range(len(symop)):
+      trans=translation(axis,masslist,qvector[t],position)[0];
+      transOP=modeafterOP(trans,natom,np.identity(3));
+      switch=np.zeros((natom,natom));
+      for k in range(natom):
+        switch[Tlist[i][k]][k]=1;
+      originalOP=modeafterOP(switch,natom,symop[i]);
+      totalOP.append(np.matmul(transOP,originalOP));
+  return totalOP;
 if __name__=="__main__":
   pass;
 else:

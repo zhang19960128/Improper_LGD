@@ -1,0 +1,3 @@
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd: error: *** JOB 16865 ON c2 CANCELLED AT 2021-07-03T07:37:44 ***
+slurmstepd: error: *** STEP 16865.0 ON c2 CANCELLED AT 2021-07-03T07:37:44 ***

@@ -1,0 +1,5 @@
+#!/bin/bash
+#SBATCH -n 96
+#SBATCH -p debug2
+#SBATCH -t 01:00:00
+/workspace/jiahaoz/PACKAGE_INSTALL/INTEL/mpi/2021.2.0/bin/mpirun -n 36 ./vasp_std >./vasp.out

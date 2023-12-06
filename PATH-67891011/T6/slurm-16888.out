@@ -1,0 +1,6 @@
+Abort(13) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 13) - process 0
+In: PMI_Abort(13, application called MPI_Abort(MPI_COMM_WORLD, 13) - process 0)
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd: error: *** STEP 16888.0 ON c5 CANCELLED AT 2021-07-03T07:47:09 ***
+srun: error: c5: task 0: Exited with exit code 13
+srun: error: c5: tasks 1-35: Killed

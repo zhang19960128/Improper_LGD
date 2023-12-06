@@ -1,0 +1,75 @@
+# Optimize the geometry
+#ionmov 2
+tolmxf 1d-5
+#optcell 2
+## Symmetry
+chkprim 0
+#chkdilatmx 1
+#dilatmx 1.05
+#symmorphi 0
+#Parameters
+nstep  100
+ecut 25
+ecutsm 0.5
+pawecutdg 25
+#occopt 4
+tsmear 0.04
+# GGA+ U
+pawxcdev 0
+tolvrs   1.0d-18      # SCF stopping criterion
+# Berry Phase
+symmorphi 0
+#kptopt1   1
+
+acell 5.075568 5.075568 5.075568 angstrom
+rprim 1.0 0.0 0.0
+      0.0 1.0 0.0
+      0.0 0.0 1.0
+
+
+#Structural parameters
+
+natom 12
+ntypat 2
+typat 1 1 1 1 2 2 2 2 2 2 2 2
+znucl 72 8
+xred    0.00000000   0.00254082  -0.00000000
+       0.00000000   0.50254099   0.50000000
+       0.50000000   0.00254082   0.50000000
+       0.50000000   0.50254099  -0.00000000
+       0.23871752   0.23789690   0.70029446
+       0.23871140   0.73789690   0.79970400
+       0.26128860   0.73790262   0.29970425
+       0.26128249   0.23790262   0.20029421
+       0.76128248   0.23789690   0.29970554
+       0.76128860   0.73789690   0.20029600
+       0.73871140   0.73790262   0.70029575
+       0.73871751   0.23790262   0.79970579
+# Kpoint Grid
+kptopt 2
+ngkpt 6 6 6
+nshiftk 1
+shiftk 1 1 1
+#chksymbreak 0  # The k point grid is not symmetric, but the calculations being for the ground-state, this is not a problem.
+
+ pp_dirpath "$ABI_PSPDIR"
+# pseudos "ATOMICDATA/Hf.GGA_PBE-JTH.xml,ATOMICDATA/Zr.GGA_PBE-JTH.xml,ATOMICDATA/O.GGA_PBE-JTH.xml"
+ pseudos "pbe_s_sr/Hf.psp8,pbe_s_sr/O.psp8"
+# pseudos "Pseudodojo_nc_sr_04_pw_standard_psp8/P.psp8, Pseudodojo_nc_sr_04_pw_standard_psp8/Al.psp8"
+##############################################################
+# This section is used only for regression testing of ABINIT #
+##############################################################
+#%%<BEGIN TEST_INFO>
+#%% [setup]
+#%% executable = abinit
+#%% [files]
+#%% files_to_test = 
+#%%   tdftu_1.abo, tolnlines=  4, tolabs=  2.000e-06, tolrel=  2.000e-03, fld_options = -medium
+#%% output_file = "tdftu_1.abo"
+#%% [paral_info]
+#%% max_nprocs = 1
+#%% [extra_info]
+#%% authors = Unknown
+#%% keywords = DFTU, PAW
+#%% description =  first run of the DFT+U tutorial
+#%%<END TEST_INFO>

@@ -1,0 +1,122 @@
+This requires fcntl(2) to be implemented. As of 8/25/2011 it is not. Generic MPICH Message: File locking failed in ADIOI_GEN_SetLock(fd 17,cmd F_SETLKW64/7,type F_RDLCK/0,whence 0) with return value FFFFFFFF and errno 16.
+- If the file system is NFS, you need to use NFS version 3, ensure that the lockd daemon is running on all the machines, and mount the directory with the 'noac' option (no attribute caching).
+- If the file system is LUSTRE, ensure that the directory is mounted with the 'flock' option.
+ADIOI_GEN_SetLock:: Invalid argument
+ADIOI_GEN_SetLock:offset 18446744073709551615, length 9
+Abort(1) on node 9 (rank 9 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 1) - process 9
+In: PMI_Abort(1, application called MPI_Abort(MPI_COMM_WORLD, 1) - process 9)
+This requires fcntl(2) to be implemented. As of 8/25/2011 it is not. Generic MPICH Message: File locking failed in ADIOI_GEN_SetLock(fd 17,cmd F_SETLKW64/7,type F_RDLCK/0,whence 0) with return value FFFFFFFF and errno 16.
+- If the file system is NFS, you need to use NFS version 3, ensure that the lockd daemon is running on all the machines, and mount the directory with the 'noac' option (no attribute caching).
+- If the file system is LUSTRE, ensure that the directory is mounted with the 'flock' option.
+ADIOI_GEN_SetLock:: Invalid argument
+ADIOI_GEN_SetLock:offset 18446744073709551615, length 9
+Abort(1) on node 18 (rank 18 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 1) - process 18
+In: PMI_Abort(1, application called MPI_Abort(MPI_COMM_WORLD, 1) - process 18)
+This requires fcntl(2) to be implemented. As of 8/25/2011 it is not. Generic MPICH Message: File locking failed in ADIOI_GEN_SetLock(fd 17,cmd F_SETLKW64/7,type F_RDLCK/0,whence 0) with return value FFFFFFFF and errno 16.
+- If the file system is NFS, you need to use NFS version 3, ensure that the lockd daemon is running on all the machines, and mount the directory with the 'noac' option (no attribute caching).
+- If the file system is LUSTRE, ensure that the directory is mounted with the 'flock' option.
+ADIOI_GEN_SetLock:: Invalid argument
+ADIOI_GEN_SetLock:offset 18446744073709551615, length 9
+Abort(1) on node 15 (rank 15 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 1) - process 15
+This requires fcntl(2) to be implemented. As of 8/25/2011 it is not. Generic MPICH Message: File locking failed in ADIOI_GEN_SetLock(fd 17,cmd F_SETLKW64/7,type F_RDLCK/0,whence 0) with return value FFFFFFFF and errno 16.
+- If the file system is NFS, you need to use NFS version 3, ensure that the lockd daemon is running on all the machines, and mount the directory with the 'noac' option (no attribute caching).
+- If the file system is LUSTRE, ensure that the directory is mounted with the 'flock' option.
+ADIOI_GEN_SetLock:: Invalid argument
+ADIOI_GEN_SetLock:offset 18446744073709551615, length 9
+Abort(1) on node 20 (rank 20 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 1) - process 20
+In: PMI_Abort(1, application called MPI_Abort(MPI_COMM_WORLD, 1) - process 20)
+This requires fcntl(2) to be implemented. As of 8/25/2011 it is not. Generic MPICH Message: File locking failed in ADIOI_GEN_SetLock(fd 17,cmd F_SETLKW64/7,type F_RDLCK/0,whence 0) with return value FFFFFFFF and errno 16.
+- If the file system is NFS, you need to use NFS version 3, ensure that the lockd daemon is running on all the machines, and mount the directory with the 'noac' option (no attribute caching).
+- If the file system is LUSTRE, ensure that the directory is mounted with the 'flock' option.
+ADIOI_GEN_SetLock:: Invalid argument
+ADIOI_GEN_SetLock:offset 18446744073709551615, length 9
+Abort(1) on node 23 (rank 23 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 1) - process 23
+In: PMI_Abort(1, application called MPI_Abort(MPI_COMM_WORLD, 1) - process 23)
+This requires fcntl(2) to be implemented. As of 8/25/2011 it is not. Generic MPICH Message: File locking failed in ADIOI_GEN_SetLock(fd 17,cmd F_SETLKW64/7,type F_RDLCK/0,whence 0) with return value FFFFFFFF and errno 16.
+- If the file system is NFS, you need to use NFS version 3, ensure that the lockd daemon is running on all the machines, and mount the directory with the 'noac' option (no attribute caching).
+- If the file system is LUSTRE, ensure that the directory is mounted with the 'flock' option.
+ADIOI_GEN_SetLock:: Invalid argument
+ADIOI_GEN_SetLock:offset 18446744073709551615, length 9
+Abort(1) on node 7 (rank 7 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 1) - process 7
+In: PMI_Abort(1, application called MPI_Abort(MPI_COMM_WORLD, 1) - process 7)
+In: PMI_Abort(1, application called MPI_Abort(MPI_COMM_WORLD, 1) - process 15)
+This requires fcntl(2) to be implemented. As of 8/25/2011 it is not. Generic MPICH Message: File locking failed in ADIOI_GEN_SetLock(fd 17,cmd F_SETLKW64/7,type F_RDLCK/0,whence 0) with return value FFFFFFFF and errno 16.
+- If the file system is NFS, you need to use NFS version 3, ensure that the lockd daemon is running on all the machines, and mount the directory with the 'noac' option (no attribute caching).
+- If the file system is LUSTRE, ensure that the directory is mounted with the 'flock' option.
+ADIOI_GEN_SetLock:: Invalid argument
+ADIOI_GEN_SetLock:offset 18446744073709551615, length 9
+Abort(1) on node 16 (rank 16 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 1) - process 16
+In: PMI_Abort(1, application called MPI_Abort(MPI_COMM_WORLD, 1) - process 16)
+This requires fcntl(2) to be implemented. As of 8/25/2011 it is not. Generic MPICH Message: File locking failed in ADIOI_GEN_SetLock(fd 17,cmd F_SETLKW64/7,type F_RDLCK/0,whence 0) with return value FFFFFFFF and errno 16.
+- If the file system is NFS, you need to use NFS version 3, ensure that the lockd daemon is running on all the machines, and mount the directory with the 'noac' option (no attribute caching).
+- If the file system is LUSTRE, ensure that the directory is mounted with the 'flock' option.
+ADIOI_GEN_SetLock:: Invalid argument
+ADIOI_GEN_SetLock:offset 18446744073709551615, length 9
+Abort(1) on node 17 (rank 17 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 1) - process 17
+In: PMI_Abort(1, application called MPI_Abort(MPI_COMM_WORLD, 1) - process 17)
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+This requires fcntl(2) to be implemented. As of 8/25/2011 it is not. Generic MPICH Message: File locking failed in ADIOI_GEN_SetLock(fd 18,cmd F_SETLKW64/7,type F_RDLCK/0,whence 0) with return value FFFFFFFF and errno 16.
+- If the file system is NFS, you need to use NFS version 3, ensure that the lockd daemon is running on all the machines, and mount the directory with the 'noac' option (no attribute caching).
+- If the file system is LUSTRE, ensure that the directory is mounted with the 'flock' option.
+ADIOI_GEN_SetLock:: Invalid argument
+ADIOI_GEN_SetLock:offset 18446744073709551615, length 9
+Abort(1) on node 6 (rank 6 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 1) - process 6
+In: PMI_Abort(1, application called MPI_Abort(MPI_COMM_WORLD, 1) - process 6)
+This requires fcntl(2) to be implemented. As of 8/25/2011 it is not. Generic MPICH Message: File locking failed in ADIOI_GEN_SetLock(fd 18,cmd F_SETLKW64/7,type F_RDLCK/0,whence 0) with return value FFFFFFFF and errno 16.
+- If the file system is NFS, you need to use NFS version 3, ensure that the lockd daemon is running on all the machines, and mount the directory with the 'noac' option (no attribute caching).
+- If the file system is LUSTRE, ensure that the directory is mounted with the 'flock' option.
+ADIOI_GEN_SetLock:: Invalid argument
+ADIOI_GEN_SetLock:offset 18446744073709551615, length 9
+Abort(1) on node 1 (rank 1 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 1) - process 1
+In: PMI_Abort(1, application called MPI_Abort(MPI_COMM_WORLD, 1) - process 1)
+This requires fcntl(2) to be implemented. As of 8/25/2011 it is not. Generic MPICH Message: File locking failed in ADIOI_GEN_SetLock(fd 17,cmd F_SETLKW64/7,type F_RDLCK/0,whence 0) with return value FFFFFFFF and errno 16.
+- If the file system is NFS, you need to use NFS version 3, ensure that the lockd daemon is running on all the machines, and mount the directory with the 'noac' option (no attribute caching).
+- If the file system is LUSTRE, ensure that the directory is mounted with the 'flock' option.
+ADIOI_GEN_SetLock:: Invalid argument
+ADIOI_GEN_SetLock:offset 18446744073709551615, length 9
+Abort(1) on node 19 (rank 19 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 1) - process 19
+In: PMI_Abort(1, application called MPI_Abort(MPI_COMM_WORLD, 1) - process 19)
+This requires fcntl(2) to be implemented. As of 8/25/2011 it is not. Generic MPICH Message: File locking failed in ADIOI_GEN_SetLock(fd 17,cmd F_SETLKW64/7,type F_RDLCK/0,whence 0) with return value FFFFFFFF and errno 16.
+- If the file system is NFS, you need to use NFS version 3, ensure that the lockd daemon is running on all the machines, and mount the directory with the 'noac' option (no attribute caching).
+- If the file system is LUSTRE, ensure that the directory is mounted with the 'flock' option.
+ADIOI_GEN_SetLock:: Invalid argument
+ADIOI_GEN_SetLock:offset 18446744073709551615, length 9
+Abort(1) on node 25 (rank 25 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 1) - process 25
+In: PMI_Abort(1, application called MPI_Abort(MPI_COMM_WORLD, 1) - process 25)
+This requires fcntl(2) to be implemented. As of 8/25/2011 it is not. Generic MPICH Message: File locking failed in ADIOI_GEN_SetLock(fd 17,cmd F_SETLKW64/7,type F_RDLCK/0,whence 0) with return value FFFFFFFF and errno 16.
+- If the file system is NFS, you need to use NFS version 3, ensure that the lockd daemon is running on all the machines, and mount the directory with the 'noac' option (no attribute caching).
+- If the file system is LUSTRE, ensure that the directory is mounted with the 'flock' option.
+ADIOI_GEN_SetLock:: Invalid argument
+ADIOI_GEN_SetLock:offset 18446744073709551615, length 9
+Abort(1) on node 27 (rank 27 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 1) - process 27
+In: PMI_Abort(1, application called MPI_Abort(MPI_COMM_WORLD, 1) - process 27)
+This requires fcntl(2) to be implemented. As of 8/25/2011 it is not. Generic MPICH Message: File locking failed in ADIOI_GEN_SetLock(fd 18,cmd F_SETLKW64/7,type F_RDLCK/0,whence 0) with return value FFFFFFFF and errno 16.
+- If the file system is NFS, you need to use NFS version 3, ensure that the lockd daemon is running on all the machines, and mount the directory with the 'noac' option (no attribute caching).
+- If the file system is LUSTRE, ensure that the directory is mounted with the 'flock' option.
+ADIOI_GEN_SetLock:: Invalid argument
+ADIOI_GEN_SetLock:offset 18446744073709551615, length 9
+Abort(1) on node 3 (rank 3 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 1) - process 3
+In: PMI_Abort(1, application called MPI_Abort(MPI_COMM_WORLD, 1) - process 3)
+This requires fcntl(2) to be implemented. As of 8/25/2011 it is not. Generic MPICH Message: File locking failed in ADIOI_GEN_SetLock(fd 18,cmd F_SETLKW64/7,type F_RDLCK/0,whence 0) with return value FFFFFFFF and errno 16.
+- If the file system is NFS, you need to use NFS version 3, ensure that the lockd daemon is running on all the machines, and mount the directory with the 'noac' option (no attribute caching).
+- If the file system is LUSTRE, ensure that the directory is mounted with the 'flock' option.
+ADIOI_GEN_SetLock:: Invalid argument
+ADIOI_GEN_SetLock:offset 18446744073709551615, length 9
+Abort(1) on node 4 (rank 4 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 1) - process 4
+In: PMI_Abort(1, application called MPI_Abort(MPI_COMM_WORLD, 1) - process 4)
+slurmstepd: error: *** STEP 16906.0 ON c3 CANCELLED AT 2021-07-03T08:00:50 ***
+This requires fcntl(2) to be implemented. As of 8/25/2011 it is not. Generic MPICH Message: File locking failed in ADIOI_GEN_SetLock(fd 18,cmd F_SETLKW64/7,type F_RDLCK/0,whence 0) with return value FFFFFFFF and errno 16.
+- If the file system is NFS, you need to use NFS version 3, ensure that the lockd daemon is running on all the machines, and mount the directory with the 'noac' option (no attribute caching).
+- If the file system is LUSTRE, ensure that the directory is mounted with the 'flock' option.
+ADIOI_GEN_SetLock:: Invalid argument
+ADIOI_GEN_SetLock:offset 18446744073709551615, length 9
+Abort(1) on node 2 (rank 2 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 1) - process 2
+In: PMI_Abort(1, application called MPI_Abort(MPI_COMM_WORLD, 1) - process 2)
+This requires fcntl(2) to be implemented. As of 8/25/2011 it is not. Generic MPICH Message: File locking failed in ADIOI_GEN_SetLock(fd 17,cmd F_SETLKW64/7,type F_RDLCK/0,whence 0) with return value FFFFFFFF and errno 16.
+- If the file system is NFS, you need to use NFS version 3, ensure that the lockd daemon is running on all the machines, and mount the directory with the 'noac' option (no attribute caching).
+- If the file system is LUSTRE, ensure that the directory is mounted with the 'flock' option.
+ADIOI_GEN_SetLock:: Invalid argument
+ADIOI_GEN_SetLock:offset 18446744073709551615, length 10
+Abort(1) on node 24 (rank 24 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 1) - process 24
+In: PMI_Abort(1, application called MPI_Abort(MPI_COMM_WORLD, 1) - process 24)
+srun: error: c3: tasks 0-35: Killed

@@ -1,0 +1,4 @@
+srun: error: c5: task 0: Segmentation fault (core dumped)
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd: error: *** STEP 16928.0 ON c5 CANCELLED AT 2021-07-03T08:28:15 DUE TO TIME LIMIT ***
+slurmstepd: error: *** JOB 16928 ON c5 CANCELLED AT 2021-07-03T08:28:15 DUE TO TIME LIMIT ***

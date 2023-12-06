@@ -1,0 +1,93 @@
+# Optimize the geometry
+#ionmov 2
+tolmxf 1d-5
+#optcell 2
+## Symmetry
+ndtset 2
+chkprim 0
+#chkdilatmx 1
+#dilatmx 1.05
+#symmorphi 0
+#Parameters
+nstep  100
+ecut 25
+ecutsm 0.5
+pawecutdg 25
+#occopt 4
+tsmear 0.04
+# GGA+ U
+pawxcdev 0
+tolvrs   1.0d-18      # SCF stopping criterion
+# Berry Phase
+symmorphi 0
+berryopt1 -1
+rfdir1 1 1 1
+#kptopt1   1
+toldfe1   1.0d-10
+nband1   48
+               # Dataset #2 ground state in electric field *******
+nband2    48
+#kptopt2   2
+berryopt2 4
+toldfe2   1.0d-10
+getwfk2   1
+efield 8.628033203443827e-13 0.0004270119666772034 1.7495509275248019e-12
+# DFT+U
+#usepawu   1
+#lpawu   2 -1 -1
+#upawu  5.0 0.0 0.0 eV
+
+#CELL PARAMETERS
+
+acell 5.075568 5.075568 5.075568 angstrom
+rprim 1.0 0.0 0.0
+      0.0 1.0 0.0
+      0.0 0.0 1.0
+
+
+#Structural parameters
+
+natom 12
+ntypat 2
+typat 1 1 1 1 2 2 2 2 2 2 2 2
+znucl 72 8
+xred    0.00000000   0.01487092   0.00000000
+       0.50000000   0.51487085   0.00000000
+       0.00000000   0.51487264   0.50000000
+       0.50000000   0.01487223   0.50000000
+       0.26128306   0.24979731   0.20029308
+       0.23871809   0.24979215   0.70029559
+       0.76128803   0.74979299   0.20029487
+       0.73871083   0.74979926   0.70029688
+       0.26128917   0.74979926   0.29970312
+       0.23871197   0.74979299   0.79970513
+       0.76128191   0.24979215   0.29970441
+       0.73871694   0.24979731   0.79970692
+# Kpoint Grid
+kptopt 2
+ngkpt 6 6 6
+nshiftk 1
+shiftk 1 1 1
+#chksymbreak 0  # The k point grid is not symmetric, but the calculations being for the ground-state, this is not a problem.
+
+ pp_dirpath "$ABI_PSPDIR"
+# pseudos "ATOMICDATA/Hf.GGA_PBE-JTH.xml,ATOMICDATA/Zr.GGA_PBE-JTH.xml,ATOMICDATA/O.GGA_PBE-JTH.xml"
+ pseudos "pbe_s_sr/Hf.psp8,pbe_s_sr/O.psp8"
+# pseudos "Pseudodojo_nc_sr_04_pw_standard_psp8/P.psp8, Pseudodojo_nc_sr_04_pw_standard_psp8/Al.psp8"
+##############################################################
+# This section is used only for regression testing of ABINIT #
+##############################################################
+#%%<BEGIN TEST_INFO>
+#%% [setup]
+#%% executable = abinit
+#%% [files]
+#%% files_to_test = 
+#%%   tdftu_1.abo, tolnlines=  4, tolabs=  2.000e-06, tolrel=  2.000e-03, fld_options = -medium
+#%% output_file = "tdftu_1.abo"
+#%% [paral_info]
+#%% max_nprocs = 1
+#%% [extra_info]
+#%% authors = Unknown
+#%% keywords = DFTU, PAW
+#%% description =  first run of the DFT+U tutorial
+#%%<END TEST_INFO>

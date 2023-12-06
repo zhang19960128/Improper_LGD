@@ -1,0 +1,42 @@
+
+#======================================================================
+# CRYSTAL DATA
+#----------------------------------------------------------------------
+data_VESTA_phase_1
+
+_chemical_name_common                  'HfO2 '
+_cell_length_a                         5.409388
+_cell_length_b                         4.980800
+_cell_length_c                         4.980800
+_cell_angle_alpha                      90.000000
+_cell_angle_beta                       90.000000
+_cell_angle_gamma                      90.000000
+_cell_volume                           134.198101
+_space_group_name_H-M_alt              'P 1'
+_space_group_IT_number                 1
+
+loop_
+_space_group_symop_operation_xyz
+   'x, y, z'
+
+loop_
+   _atom_site_label
+   _atom_site_occupancy
+   _atom_site_fract_x
+   _atom_site_fract_y
+   _atom_site_fract_z
+   _atom_site_adp_type
+   _atom_site_U_iso_or_equiv
+   _atom_site_type_symbol
+   Hf1        1.0     0.001280     0.004200    -0.001570    Uiso  ? Hf
+   Hf2        1.0     0.468528     0.504224    -0.062730    Uiso  ? Hf
+   Hf3        1.0     0.001244     0.504226     0.437231    Uiso  ? Hf
+   Hf4        1.0     0.468509     0.004213     0.498461    Uiso  ? Hf
+   O1         1.0     0.275688     0.251248     0.204525    Uiso  ? O
+   O2         1.0     0.194167     0.251296     0.704511    Uiso  ? O
+   O3         1.0     0.807608     0.642246     0.098339    Uiso  ? O
+   O4         1.0     0.662295     0.642280     0.598459    Uiso  ? O
+   O5         1.0     0.275703     0.751200     0.231204    Uiso  ? O
+   O6         1.0     0.194213     0.751234     0.731185    Uiso  ? O
+   O7         1.0     0.807710     0.141941     0.337407    Uiso  ? O
+   O8         1.0     0.662053     0.141891     0.837531    Uiso  ? O

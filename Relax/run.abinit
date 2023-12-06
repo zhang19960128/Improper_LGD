@@ -1,0 +1,10 @@
+#!/bin/bash
+#SBATCH -n 96
+#SBATCH -p debug2
+#SBATCH -t 01:00:00
+export ABI_PSPDIR=/workspace/jiahaoz/PACKAGE_INSTALL/abinit-9.4.1 #/JTH-PBE-atomicdata-1.1
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/workspace/jiahaoz/PACKAGE_INSTALL/abinit_support/lib
+abinitexec=/workspace/jiahaoz/PACKAGE_INSTALL/abinit/bin
+path=$(pwd)
+cp $abinitexec/abinit .
+/workspace/jiahaoz/PACKAGE_INSTALL/INTEL/mpi/2021.2.0/bin/mpirun -n 36 ./abinit MODE2_19_21_22total > MODE2_19_21_22total.out

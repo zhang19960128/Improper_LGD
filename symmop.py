@@ -23,3 +23,5 @@ def symoperate_matrix_op(OP,modeindex,v):
         for n in range(3):
           Tmatrix[3*i+m][3*j+n]=OP[m][n]*switch[i][j];
   return(np.matmul(Tmatrix,v.reshape(len(v),1)).reshape(len(v)));
+def OPdotV(OPmatrix,modevector):
+  return np.matmul(OPmatrix,modevector.transpose());

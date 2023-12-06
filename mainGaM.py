@@ -18,32 +18,62 @@ import analyzeEXP
 import xlsxwriter
 import pandas as pd
 import ireducible
+import constants
+import printireducible
+import positdiff
+import modeproject
+import plotprojection
 #import symmcharacter
 #Note that symmetry operation also move the atoms#
-symop=analyzePH.readsymmetry(inputfiles.dfptoutPGa);
+symop=analyzePH.readsymmetry(inputfiles.dfptoutExp);
 length=len(symop)
 localsymop=symop[0:length];
-print("Number of Symmetry Operations:",len(localsymop))
 [ExpandPosition,wmerge,vmerge]=primitive.obtainprimitivemode(inputfiles.natomExp,inputfiles.dfptinExp,inputfiles.dfptoutExp,inputfiles.modeExptotalname);
 axis=analyzePH.readaxis(inputfiles.dfptinExp);
+print('Axis is:=',axis)
+natom=12;
 [masslist,namelist]=sequence.sequence(inputfiles.natomExp);
+Tlist=check.check(symop,axis,masslist,ExpandPosition);
+#for i in range(len(Tlist)):
+#  print(Tlist[i])
 print(modematch.groupmode(wmerge))
 modematch.modecheck(vmerge);
-localTlist=check.check(localsymop,axis,masslist,ExpandPosition);
-matchcoeffmatrix=np.zeros((len(localsymop),len(vmerge)));
-for i in range(0,len(localsymop)):
-  matchcoeffGa=modematch.modematchsecond(localsymop[i],localTlist[i],vmerge,wmerge,axis);
-  matchcoeffmatrix[i]=np.copy(matchcoeffGa);
-datapd={"MOD"+str(i):np.round(matchcoeffmatrix[:,i],4) for i in range(len(vmerge))};
-df = pd.DataFrame(data=datapd);
-df.to_csv('Character.csv', index=False);
-#--------- Mode*Mode -----#
-modeindex=12;
-for i in range(len(vmerge)):
-  for j in range(i,len(vmerge)):
-    if np.linalg.norm(matchcoeffmatrix[:,i].reshape(len(localsymop))*matchcoeffmatrix[:,j].reshape(len(localsymop))-matchcoeffmatrix[:,modeindex].reshape(len(localsymop))) < 1e-3:
-      print(i,j)
-''' Find 1D mode '''
-[opmatrixinrep,opmatrix,irep]=ireducible.readirreducible();
-print(irep)
-print(opmatrix)
+qvector=[
+[0,0,0],
+[0.0,0.5,0.5],
+[0.5,0.0,0.5],
+[0.5,0.5,0.0]
+]
+#print(check.translation(axis,masslist,qvector[0],ExpandPosition)[1])
+#print(check.translation(axis,masslist,qvector[1],ExpandPosition))
+#print(check.translation(axis,masslist,qvector[2],ExpandPosition))
+#print(check.translation(axis,masslist,qvector[3],ExpandPosition))
+#modematrix=check.modeoperatingmatrix(localsymop,axis,masslist,qvector,ExpandPosition);
+#print("Length of symmetry is:=",len(modematrix))
+#printireducible.irrep(modematrix,vmerge,wmerge,axis);
+#replist=[0,2,3,4,5,6];
+#for i in replist:
+#  for j in replist:
+#    if i > j:
+#      continue;
+#    printireducible.mergeirrep(len(modematrix),wmerge,[i,j]);
+#printireducible.mergeirrep(len(modematrix),wmerge,[0,2,3,5]);
+plotprojection.projectpath(natom,axis,masslist,vmerge)
+modepro=modeproject.modeproject("./ABIOUTPUT/dfpt0666","./Pprofile/scf19",natom,axis,masslist,vmerge);
+dp=positdiff.dp(natom,axis,"./ABIOUTPUT/dfpt0666","./Pprofile/scf19");
+dp1D=dp.reshape(3*natom);
+mass3D=[];
+for i in range(natom):
+  for j in range(3):
+    mass3D.append(masslist[i]);
+modelist=[2,11,13,15,19,21,22,29];
+for project in np.arange(-4.0,4.0,0.2):  
+  dp=np.zeros(np.shape(vmerge[2]));
+  for mode in modelist:
+    if mode != 13:
+      dp=modepro[0][mode]*vmerge[mode]+dp;
+    else:
+      dp=project*vmerge[13]+dp;
+  dp=dp/np.sqrt(np.array(mass3D));
+  dp2D=dp.reshape(natom,3);
+  positdiff.writeinterpolate(natom,axis,dp2D+ExpandPosition,"./phase/cubic","./MODEPATH/"+"MODEFE{0:4.2f}".format(project));

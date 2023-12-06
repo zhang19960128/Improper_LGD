@@ -7,6 +7,10 @@ def printmode(Hposition,namelist,masslist,axis,v,modename):
   natom=len(namelist);
   for i in range(len(v)):
     f=open(modename+str(i)+".xsf",'w');
+    f2=open(modename+str(i),'w');
+    for j in range(3*natom):
+      f2.write("{0:10.7f} ".format(v[i][j]));
+    f2.close();
     f.write("PRIMVEC\n");
     for j in range(3):
       for k in range(3):

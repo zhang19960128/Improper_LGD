@@ -1,0 +1,4 @@
+srun: error: c3: task 0: Segmentation fault (core dumped)
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd: error: *** JOB 16825 ON c3 CANCELLED AT 2021-07-02T16:38:58 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 16825.0 ON c3 CANCELLED AT 2021-07-02T16:38:58 DUE TO TIME LIMIT ***

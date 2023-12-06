@@ -1,0 +1,11 @@
+This requires fcntl(2) to be implemented. As of 8/25/2011 it is not. Generic MPICH Message: File locking failed in ADIOI_GEN_SetLock(fd 1A,cmd F_SETLKW64/7,type F_RDLCK/0,whence 0) with return value FFFFFFFF and errno 16.
+- If the file system is NFS, you need to use NFS version 3, ensure that the lockd daemon is running on all the machines, and mount the directory with the 'noac' option (no attribute caching).
+- If the file system is LUSTRE, ensure that the directory is mounted with the 'flock' option.
+ADIOI_GEN_SetLock:: Invalid argument
+ADIOI_GEN_SetLock:offset 18446744073709551615, length 9
+Abort(1) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 1) - process 0
+In: PMI_Abort(1, application called MPI_Abort(MPI_COMM_WORLD, 1) - process 0)
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd: error: *** STEP 16767.0 ON c5 CANCELLED AT 2021-07-02T15:51:50 ***
+srun: error: c5: task 0: Exited with exit code 1
+srun: error: c5: tasks 1-35: Killed
